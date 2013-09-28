@@ -28,7 +28,7 @@
         "friendsofsymfony/facebook-bundle": "1.2.*@dev",
         "jms/serializer": "0.14.*@dev",
         "sonata-project/seo-bundle": "2.1.*@dev",
-        "ezyang/htmlpurifier": "dev-master",
+        "ezyang/htmlpurifier": "v4.5.0",
         "exercise/htmlpurifier-bundle": "1.0.*@dev",
         "egeloen/ckeditor-bundle": "2.1.*@dev",
         "egeloen/google-map": "1.2.*@dev",
