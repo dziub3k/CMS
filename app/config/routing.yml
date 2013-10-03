@@ -1,0 +1,5 @@
+rj_public:
+    resource: "@RJPublicBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
