@@ -1,0 +1,7 @@
+parameters:
+#    rj_user.example.class: RJ\UserBundle\Example
+
+services:
+#    rj_user.example:
+#        class: %rj_user.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
