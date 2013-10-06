@@ -1,0 +1,8 @@
+parameters:
+#    rj_public.example.class: RJ\PublicBundle\Example
+
+services:
+#    rj_public.example:
+#        class: %rj_public.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
+

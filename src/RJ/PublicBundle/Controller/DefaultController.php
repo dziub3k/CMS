@@ -8,10 +8,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 class DefaultController extends Controller
 {
-    /**
-     * @Route("/hello")
-     * @Template()
-     */
     public function indexAction()
     {
         return array('name' => 'Radek');
