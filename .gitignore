@@ -1,0 +1,7 @@
+/nbproject/private/
+/vendor
+/*.bak
+/app/cache/dev
+/app/logs/*.log
+/nbproject
+/app/config/parameters.yml

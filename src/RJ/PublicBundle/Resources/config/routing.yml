@@ -1,0 +1,3 @@
+rj_public_homepage:
+    pattern:  /
+    defaults: { _controller: RJUserBundle:Default:index }
