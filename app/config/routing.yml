@@ -1,3 +1,7 @@
+rj_admin:
+    resource: "@RJAdminBundle/Resources/config/routing.yml"
+    prefix:   /
+
 rj_user:
     resource: "@RJUserBundle/Resources/config/routing.yml"
     prefix:   /

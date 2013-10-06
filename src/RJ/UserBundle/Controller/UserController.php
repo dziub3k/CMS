@@ -4,10 +4,10 @@ namespace RJ\UserBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-class DefaultController extends Controller
+class UserController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('RJUserBundle:Default:index.html.twig', array('name' => 'UserBundle'));
+        return $this->render('RJUserBundle:User:index.html.twig', array('name' => 'UserBundle'));
     }
 }

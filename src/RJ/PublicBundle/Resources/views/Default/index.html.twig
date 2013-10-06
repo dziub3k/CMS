@@ -1,1 +1,8 @@
-Hello {{ name }}!
+{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+    {{ 'base.logged_in_as'|trans }}: {{ app.user.username }} |
+        <a href="{{ path('fos_user_security_logout') }}">
+            {{ 'base.logout' | trans  }}
+        </a>
+{% else %}
+    <a href="{{ path('fos_user_security_login') }}">{{ 'base.login' | trans }}</a>
+{% endif %}

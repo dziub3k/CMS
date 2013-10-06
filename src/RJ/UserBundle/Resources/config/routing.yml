@@ -1,6 +1,6 @@
 #rj_user_homepage:
     #pattern:  /
-    #defaults: { _controller: RJUserBundle:Default:index }
+    #defaults: { _controller: RJUserBundle:User:index }
 
 fos_user_security:
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"
@@ -20,4 +20,16 @@ fos_user_resetting:
 fos_user_change_password:
     resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
     prefix: /profile
+    
+fos_user_security_login:
+    pattern:  /login
+    defaults: { _controller: FOSUserBundle:Security:login }
+
+fos_user_security_check:
+    pattern:  /login_check
+    defaults: { _controller: FOSUserBundle:Security:check }
+
+fos_user_security_logout:
+    pattern:  /logout
+    defaults: { _controller: FOSUserBundle:Security:logout }
     

@@ -1,0 +1,8 @@
+base:
+    login: Zaloguj
+    logout: Wyloguj
+    logged_in_as: Użytkownik zalogowany
+
+security:
+    login:
+        username : User / email

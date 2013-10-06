@@ -5,3 +5,4 @@
 /app/logs/*.log
 /nbproject
 /app/config/parameters.yml
+/app/cache/prod
