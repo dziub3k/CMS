@@ -11,31 +11,26 @@ security:
             id: fos_user.user_provider.username_email
 
     firewalls:
-        admin:
-              pattern:      /admin(.*)
-              form_login:
-                  provider:       fos_userbundle
-                  login_path:     /admin/login
-                  use_forward:    false
-                  check_path:     /admin/login_check
-                  failure_path:   null
-              logout:
-                  path:           /admin/logout
-              anonymous:    true
-              
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+            
         main:
             pattern: ^/
             form_login:
                 provider: fos_userbundle
+                login_path:     /login
+                use_forward:    true
+                default_target_path: /
+                check_path:     /login_check
+                failure_path:   null
                 csrf_provider: form.csrf_provider
-            logout:       true
+            logout:
+                  path: /logout
             anonymous:    true
 
-    access_control:
-        - { path: ^/_wdt, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/_profiler, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        
-        - { path: ^/admin/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }        
+    access_control:      
+        - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }        
         - { path: ^/admin/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin, role: ROLE_ADMIN }
-        - { path: ^/.*, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/, role: IS_AUTHENTICATED_ANONYMOUSLY }
