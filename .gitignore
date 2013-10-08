@@ -6,3 +6,6 @@
 /nbproject
 /app/config/parameters.yml
 /app/cache/prod
+/web/css/compiled/*.css
+/web/css/compiled/*.css
+/web/css/compiled/*.css
