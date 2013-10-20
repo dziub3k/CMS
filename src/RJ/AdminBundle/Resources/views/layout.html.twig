@@ -1,30 +1,71 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>{% block title %}{% endblock %}</title>
-        <meta name="description" content="{% block description %}{% endblock %}">
-        <meta name="keywords" content="{% block keywords %}{% endblock %}">
-        <meta name="author" content="{% block author %}{% endblock %}">
-        <meta charset="UTF-8">
-        {% stylesheets 
-            output='css/compiled/vendor.css'
-            'css/vendor/*' %}
-        <link rel="stylesheet" href="{{ asset_url }}" />
-        {% endstylesheets %}
-        {% stylesheets 
-            output='css/compiled/admin.css'
-            'css/admin/*' %}
-        <link rel="stylesheet" href="{{ asset_url }}" />
-        {% endstylesheets %}       
+<head>
+    <title>{% block title %}{% endblock %}</title>
+    <meta name="description" content="{% block description %}{% endblock %}">
+    <meta name="keywords" content="{% block keywords %}{% endblock %}">
+    <meta name="author" content="{% block author %}{% endblock %}">
+    <meta charset="UTF-8">
+    {% stylesheets
+    output='css/compiled/vendor.css'
+    'css/vendor/*' %}
+    <link rel="stylesheet" href="{{ asset_url }}"/>
+    {% endstylesheets %}
 
-        {% block stylesheets %}
-        {% endblock %} 
+    {% stylesheets
+    output='css/compiled/admin.css'
+    'css/admin.less' %}
+    <link rel="stylesheet" href="{{ asset_url }}"/>
+    {% endstylesheets %}
 
-        <script src="{{ asset('/js/main.js') }}"></script>
-        {% block javascripts %}
-        {% endblock %}
-    </head>
-    <body>
+    {% block stylesheets %}
+    {% endblock %}
+
+    {% block javascripts %}
+    {% endblock %}
+
+</head>
+<body>
+    <header>
+        <div id="user-content">
+            <div id="user-logged">
+                {{ 'dialog.hello' | trans }} {{ app.user.firstName }} {{ app.user.lastName }}
+            </div>
+            <div id="user-message">
+                <a href="">{{ 'dialog.youHave' | trans }} x {{ 'dialog.unreadedMessage' | trans }}</a>
+            </div>
+        </div>
+        <a href="" class="unread-mail"><i class="icon-envelope"></i></a>
+    </header>
+    <section id="main-wrapper">
+        <nav>
+            <ul>
+                <li class="active">
+                    <a href=""><i class="icon-home"></i> {{ 'adminBundle.menu.dashboard' | trans }}</a>
+                    <ul>
+                        <li>
+                            <a href="">{{ 'adminBundle.menu.manageDashboard' | trans }} <i class="icon-dashboard"></i></a>
+                        </li>
+                        <li>
+                            <a href="">example 1 <i class="icon-caret-down"></i></a>
+                        </li>
+                        <li>
+                            <a href="">example 2 <i class="icon-caret-down"></i></a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href=""><i class="icon-group"></i> {{ 'adminBundle.menu.manageUsers' | trans }}</a>
+                </li>
+                <li>
+                    <a href=""><i class="icon-wrench"></i> {{ 'adminBundle.menu.settings' | trans }}</a>
+                </li>
+                <li id="logout" class="last">
+                    <a href="{{ path('fos_user_security_logout') }}"><i class="icon-off"></i></a>
+                </li>
+            </ul>
+        </nav>
         {% block body %}{% endblock %}
-        </body>
-    </html>
+    </section>
+</body>
+</html>

@@ -1,2 +1,12 @@
+dialog:
+    hello: Witaj
+    youHave: Masz
+    unreadedMessage: nieprzeczytanych wiadomości
+
 adminBundle:
     header: Panel administracyjny
+    menu:
+        dashboard: Panel
+        manageDashboard: Zarządzaj panelem
+        manageUsers: Użytkownicy
+        settings: Ustawienia

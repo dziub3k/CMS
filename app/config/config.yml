@@ -66,8 +66,6 @@ fos_user:
     registration:
         form:
             type: rj_user_registration
-        confirmation:
-            enabled:    true            
     
 # Swiftmailer Configuration
 swiftmailer:
@@ -77,4 +75,3 @@ swiftmailer:
     username:  %mailer_user%
     password:  %mailer_password%
     spool:     { type: memory }
-    logging:   true

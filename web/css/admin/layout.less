@@ -1,6 +1,158 @@
 body {
-    h1 {
-        color: red;
-        font-size: 15px;
+    background-color: #efebe8;
+    font-family: Tahoma, Geneva, sans-serif;
+    header {
+      width: 100%;
+      height: 124px;
+      border-bottom: 1px solid #ffffff;
+      background-color:#534741;
+      background-image:-webkit-gradient(linear,left bottom,left top,color-stop(0.32,#534741), color-stop(0.83,#362f2d));
+      background-image:-webkit-linear-gradient(#534741, #362f2d);
+      background-image:-moz-linear-gradient(top,#534741, #362f2d);
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#534741', endColorstr='#362f2d');
+      -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#534741', endColorstr='#362f2d')";
+      background-image: -ms-linear-gradient(#534741, #362f2d);
+      background-image: -o-linear-gradient(#534741, #362f2d);
+      background-image: linear-gradient(#534741, #362f2d);
+
+      #user-content {
+        width: 215px;
+        height: 45px;
+        margin: 16px 60px 0 0;
+        color: #ffffff;
+        float: right;
+
+        #user-logged {
+          font-size: 16px;
+          padding-bottom: 6px;
+        }
+
+        #user-message {
+          font-size: 12px;
+          a {
+            color: #ffffff;
+            text-decoration: none;
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+
+      .unread-mail {
+        display: block;
+        width: 28px;
+        height: 30px;
+        color: #ffffff;
+        font-size: 28px;
+        text-decoration: none;
+        float: right;
+        margin: 18px 15px 0 0;
+        &:hover {
+          text-decoration: none;
+        }
+
+        i {
+          cursor: pointer;
+        }
+      }
     }
+
+  #main-wrapper {
+    display: block;
+    width: 945px;
+    height: auto;
+    position: relative;
+    z-index: 1;
+    margin: 0 auto;
+    top: -41px;
+    nav {
+      display: block;
+      float: left;
+      width: 945px;
+      height: 93px;
+
+      ul {
+        list-style: none;
+
+        li {
+          float: left;
+          display: block;
+          width: 159px;
+          height: 39px;
+          border: 1px solid #423a37;
+          border-bottom: none;
+          background: #ffffff;
+          margin-right: 2px;
+          &#logout {
+            width: 40px;
+            a {
+              width: 38px;
+              padding: 0;
+              text-align: center;
+              i {
+                position: relative;
+                left: 0;
+                cursor: pointer;
+              }
+            }
+          }
+          &.active {
+            border-bottom: 1px solid #dfdeda;
+            a {
+              background: #dfdeda;
+            }
+            ul {
+              display: block;
+              li {
+
+              }
+            }
+          }
+          a {
+            margin: 1px;
+            width: 117px;
+            height: 38px;
+            display: block;
+            text-align: center;
+            line-height: 38px;
+            color: @textColorInMenu;
+            text-decoration: none;
+            background: #c8c7c5;
+            .fontPtSans;
+            font-weight: 700 !important;
+            letter-spacing: 1px;
+            font-size: 15px;
+            position: relative;
+            padding: 0 20px;
+
+            i {
+              position: absolute;
+              line-height: 38px;
+              left: 10px;
+              top: 0;
+            }
+          }
+          ul {
+            display: none;
+            position: absolute;
+            width: auto;
+            height: auto;
+
+            li {
+              float: left;
+              border: none;
+              width: auto;
+              margin: 0;
+              a {
+                padding: 0 28px;
+                width: auto;
+                margin: 0;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
