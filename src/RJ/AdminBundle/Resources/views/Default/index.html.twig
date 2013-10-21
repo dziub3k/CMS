@@ -1,5 +1,22 @@
 {% extends 'RJAdminBundle::layout.html.twig' %}
+{% block title %}- panel główny{% endblock %}
+
+{% block sidebar %}
+    <section class="box">
+        <h2><i class="icon-bar-chart"></i>Podsumowanie</h2>
+        <hr>
+        <div class="box-content">
+            W trakcie...
+        </div>
+    </section>
+{% endblock %}
+
 {% block body %}
-<h1>{{ 'adminBundle.header' | trans }}</h1>
-<i class="icon-refresh icon-spin"></i>
+    <section class="box">
+        <h2><i class="icon-bar-chart"></i>Statystyka odwiedzin</h2>
+        <hr>
+        <div class="box-content">
+            Tu będzie jakiś wykres
+        </div>
+    </section>
 {% endblock %}

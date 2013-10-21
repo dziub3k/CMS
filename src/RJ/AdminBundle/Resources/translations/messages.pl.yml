@@ -2,6 +2,10 @@ dialog:
     hello: Witaj
     youHave: Masz
     unreadedMessage: nieprzeczytanych wiadomości
+    yeasterday: Wczoraj
+    visits: wizyt
+    uniqueVisits: unikalnych wizyt
+    bounceRate: odrzuconych
 
 adminBundle:
     header: Panel administracyjny
