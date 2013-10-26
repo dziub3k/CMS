@@ -6,6 +6,16 @@
     <meta name="keywords" content="{% block keywords %}{% endblock %}">
     <meta name="author" content="{% block author %}{% endblock %}">
     <meta charset="UTF-8">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+    {# charts #}
+    <script src="{{ asset('bundles/obhighcharts/js/highcharts/highcharts.js') }}"></script>
+    <script src="{{ asset('bundles/obhighcharts/js/highcharts/modules/exporting.js') }}"></script>
+    <script type="text/javascript">
+        {{ chart(chart) }}
+    </script>
+    {# end charts #}
+
     {% stylesheets
     output='css/compiled/vendor.css'
     'css/vendor/*' %}
