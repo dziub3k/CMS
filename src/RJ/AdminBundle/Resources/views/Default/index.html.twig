@@ -1,9 +1,15 @@
 {% extends 'RJAdminBundle::layout.html.twig' %}
 {% block title %}- panel główny{% endblock %}
-
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript">
+        {{ chart(chart1) }}
+        {{ chart(chart2) }}
+    </script>
+{% endblock %}
 {% block sidebar %}
     <section class="box">
-        <h2><i class="icon-bar-chart"></i>Podsumowanie</h2>
+        <h2><i class="icon-bar-chart"></i>Podsumowanie<i class="icon-caret-down"></i></h2>
         <hr>
         <div class="box-content">
             W trakcie...
@@ -13,10 +19,17 @@
 
 {% block body %}
     <section class="box">
-        <h2><i class="icon-bar-chart"></i>Statystyka odwiedzin</h2>
+        <h2><i class="icon-bar-chart"></i>Statystyka odwiedzin<i class="icon-caret-down"></i></h2>
         <hr>
         <div class="box-content">
-            <div id="linechart" style="min-width: 400px; height: 400px; margin: 0 auto"></div>
+            <div class="chart" id="linechart1" style="min-width: 400px; height: 400px; margin: 0 auto"></div>
+        </div>
+    </section>
+    <section class="box">
+        <h2><i class="icon-shopping-cart"></i>Statystyka sprzedaży<i class="icon-caret-down"></i></h2>
+        <hr>
+        <div class="box-content">
+            <div class="chart" id="linechart2" style="min-width: 400px; height: 400px; margin: 0 auto"></div>
         </div>
     </section>
 {% endblock %}

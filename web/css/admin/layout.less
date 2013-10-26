@@ -249,6 +249,7 @@ body {
       border: 1px solid #c8c3c0;
       width: 100%;
       background: #ffffff;
+      margin-bottom: 35px;
       h2 {
         position: relative;
         padding: 0 35px;
@@ -263,10 +264,18 @@ body {
 
 
         i {
-          position: absolute;
-          line-height: 42px;
-          left: 10px;
-          top: 0;
+          &:first-child {
+            position: absolute;
+            line-height: 42px;
+            left: 10px;
+            top: 0;
+          }
+          &:last-child {
+            position: absolute;
+            line-height: 42px;
+            right: 10px;
+            top: 0;
+          }
         }
       }
       hr {
@@ -282,6 +291,14 @@ body {
         background: #e0dfdd;
         margin: 0 1px 1px 1px;
         padding: 18px 25px;
+      }
+    }
+    .chart {
+      div > svg > text:last-child {
+        display: none;
+        & > tspan {
+          display: none;
+        }
       }
     }
   }
