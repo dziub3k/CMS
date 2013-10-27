@@ -9,14 +9,14 @@
 {% endblock %}
 {% block sidebar %}
     <section class="box">
-        <h2><i class="icon-bar-chart"></i>Podsumowanie<i class="icon-caret-down"></i></h2>
+        <h2><i class="fa fa-bar-chart-o"></i>Podsumowanie<i class="fa fa-caret-down"></i></h2>
         <hr>
         <div class="box-content">
             W trakcie...
         </div>
     </section>
     <section class="box">
-        <h2><i class="icon-bar-chart"></i>Archiwum raportów<i class="icon-caret-down"></i></h2>
+        <h2><i class="fa fa-archive"></i>Archiwum raportów<i class="fa fa-caret-down"></i></h2>
         <hr>
         <div class="box-content">
             <ul>
@@ -30,29 +30,36 @@
 
 {% block body %}
     <section class="box">
-        <h2><i class="icon-bar-chart"></i>Statystyka odwiedzin<i class="icon-caret-down"></i></h2>
+        <h2><i class="fa fa-bar-chart-o"></i>Statystyka odwiedzin<i class="fa fa-caret-down"></i></h2>
         <hr>
         <div class="box-content">
             <div class="chart" id="linechart1" style="min-width: 400px; height: 400px; margin: 0 auto"></div>
         </div>
     </section>
     <section class="box">
-        <h2><i class="icon-shopping-cart"></i>Statystyka sprzedaży<i class="icon-caret-down"></i></h2>
+        <h2><i class="fa fa-shopping-cart"></i>Statystyka sprzedaży<i class="fa fa-caret-down"></i></h2>
         <hr>
         <div class="box-content">
             <div class="chart" id="linechart2" style="min-width: 400px; height: 400px; margin: 0 auto"></div>
         </div>
     </section>
     <section class="box">
-        <h2><i class="icon-shopping-cart"></i>Ostatnie komentarze<i class="icon-caret-down"></i></h2>
+        <h2><i class="fa fa-comments"></i>Ostatnie komentarze<i class="fa fa-caret-down"></i></h2>
         <hr>
         <div class="box-content">
             <ul class="latest-comments">
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
+                <li>
+                    <table>
+                        <tr>
+                            <td class="avatar"><i class="fa fa-user"></i></td>
+                            <td class="comment-content"></td>
+                            <td class="options"></td>
+                        </tr>
+                        <tr>
+                            <td class="options"></td>
+                        </tr>
+                    </table>
+                </li>
             </ul>
         </div>
     </section>
