@@ -14,3 +14,9 @@ adminBundle:
         manageDashboard: Zarządzaj panelem
         manageUsers: Użytkownicy
         settings: Ustawienia
+        manageShop: Sklep
+    comment:
+        aprove: Zatwierdź
+        spam: Spam
+        delete: Usuń
+        trash: Do kosza
