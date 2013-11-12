@@ -132,6 +132,9 @@ body {
                   background-position: right center;
                   line-height: 52px;
                   font-weight: 400 !important;
+                  &:hover {
+                    text-decoration: underline;
+                  }
                   i {
                     line-height: 52px;
                   }
@@ -158,7 +161,9 @@ body {
             font-size: 15px;
             position: relative;
             padding: 0 20px;
-
+            &:hover {
+              text-decoration: underline;
+            }
             i {
               position: absolute;
               line-height: 38px;
@@ -215,7 +220,7 @@ body {
           }
           .fa-arrow-down {
             right: 0;
-            color: #fe4d3d;
+            color: #FE4D3D;
             line-height: 32px;
             position: absolute;
             transform: rotate(-45deg);
@@ -234,6 +239,25 @@ body {
       margin-right: 48px;
       position: relative;
       top: -10px;
+      .box-content {
+        ul {
+          list-style-type: none;
+          li {
+            .fontPtSans;
+            border-bottom: 1px solid #C8C3C0;
+            padding: 5px 0;
+          }
+        }
+        .options {
+          width: 100%;
+          text-align: right;
+          padding-top: 10px;
+          padding-bottom: 5px;
+          .view-more {
+            color: #afaeac ;
+          }
+        }
+      }
     }
     #main-content {
       float: right;

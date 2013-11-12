@@ -1,0 +1,7 @@
+parameters:
+#    rj_shop.example.class: RJ\ShopBundle\Example
+
+services:
+#    rj_shop.example:
+#        class: %rj_shop.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

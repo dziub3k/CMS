@@ -8,6 +8,9 @@ dialog:
     bounceRate: odrzuconych
 
 adminBundle:
+    base:
+        view:
+            more: Zobacz więcej
     header: Panel administracyjny
     menu:
         dashboard: Panel

@@ -10,7 +10,7 @@ class DefaultController extends Controller {
 
     public function indexAction() {
         return $this->render(
-                        'RJPublicBundle:Default:index.html.twig'
+                        'RJPublicBundle:ManageShop:index.html.twig'
         );
     }
 
@@ -30,7 +30,7 @@ class DefaultController extends Controller {
             $url = $this->container->get('router')->generate('rj_public_homepage');
             $response = new \Symfony\Component\HttpFoundation\RedirectResponse($url);
             return $response;
-            //$this->render('RJPublicBundle:Default:index.html.twig');
+            //$this->render('RJPublicBundle:ManageShop:index.html.twig');
     }
 
 }

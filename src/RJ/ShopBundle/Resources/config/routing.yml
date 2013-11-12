@@ -1,0 +1,3 @@
+rj_shop_homepage:
+    pattern:  /admin/shop
+    defaults: { _controller: RJShopBundle:ManageShop:index }

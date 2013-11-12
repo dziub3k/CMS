@@ -50,8 +50,8 @@
     </header>
     <nav>
         <ul>
-            <li class="active">
-                <a href=""><i class="fa fa-home"></i> {{ 'adminBundle.menu.dashboard' | trans }}</a>
+            <li class="{% block menuDashboard %}{% endblock %}">
+                <a href="{{ path('rj_admin_homepage') }}"><i class="fa fa-home"></i> {{ 'adminBundle.menu.dashboard' | trans }}</a>
                 <ul>
                     <li>
                         <a href="">{{ 'adminBundle.menu.manageDashboard' | trans }} <i class="fa fa-dashboard"></i></a>
@@ -67,8 +67,8 @@
             <li>
                 <a href=""><i class="fa fa-group"></i> {{ 'adminBundle.menu.manageUsers' | trans }}</a>
             </li>
-            <li>
-                <a href=""><i class="fa fa-shopping-cart"></i> {{ 'adminBundle.menu.manageShop' | trans }}</a>
+            <li class="{% block menuShop %}{% endblock %}">
+                <a href="{{ path('rj_shop_homepage') }}"><i class="fa fa-shopping-cart"></i> {{ 'adminBundle.menu.manageShop' | trans }}</a>
             </li>
             <li>
                 <a href=""><i class="fa fa-wrench"></i> {{ 'adminBundle.menu.settings' | trans }}</a>
