@@ -16,8 +16,14 @@ adminBundle:
         dashboard: Panel
         manageDashboard: Zarządzaj panelem
         manageUsers: Użytkownicy
-        settings: Ustawienia
+        settings:
+            settings: Ustawienia
+            menu: Zarządzanie menu
+            site: Ogólne
+            modules: Zarządzanie modułami
         manageShop: Sklep
+        cms: CMS
+        server: Server
     comment:
         aprove: Zatwierdź
         spam: Spam

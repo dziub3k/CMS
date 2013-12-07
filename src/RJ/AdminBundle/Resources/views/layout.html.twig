@@ -70,11 +70,31 @@
             <li class="{% block menuShop %}{% endblock %}">
                 <a href="{{ path('rj_shop_homepage') }}"><i class="fa fa-shopping-cart"></i> {{ 'adminBundle.menu.manageShop' | trans }}</a>
             </li>
-            <li>
-                <a href=""><i class="fa fa-wrench"></i> {{ 'adminBundle.menu.settings' | trans }}</a>
+            <li class="{% block menuCms %}{% endblock %}">
+                <a href=""><i class="fa fa-gears"></i> {{ 'adminBundle.menu.cms' | trans }}</a>
+            </li>
+            <li class="{% block menuSettings %}{% endblock %}">
+                <a href="{{ path('rj_admin_settings') }}"><i class="fa fa-wrench"></i> {{ 'adminBundle.menu.settings.settings' | trans }}</a>
+                <ul>
+                    <li>
+                        <a href="">{{ 'adminBundle.menu.settings.site' | trans }}</a>
+                    </li>
+                    <li>
+                        <a href="">{{ 'adminBundle.menu.settings.menu' | trans }}</a>
+                    </li>
+                    <li>
+                        <a href="">{{ 'adminBundle.menu.settings.modules' | trans }}</a>
+                    </li>
+                </ul>
             </li>
             <li id="logout">
                 <a href="{{ path('fos_user_security_logout') }}"><i class="fa fa-power-off"></i></a>
+            </li>
+            <li id="server-management">
+                <a href=""><i class="fa fa-medkit"></i></a>
+            </li>
+            <li id="admin-messages">
+                <a href=""><i class="fa fa-envelope"></i></a>
             </li>
         </ul>
     </nav>

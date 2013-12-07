@@ -1,3 +1,7 @@
 rj_admin_homepage:
     pattern:  /admin
     defaults: { _controller: RJAdminBundle:Default:index }
+
+rj_admin_settings:
+    pattern: /admin/settings
+    defaults: { _controller: RJAdminBundle:Settings:index }
