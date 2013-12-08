@@ -3,15 +3,17 @@
 namespace RJ\PublicBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Symfony\Component\HttpFoundation\Response;
 
 class DefaultController extends Controller {
+    public function getTokenAction()
+    {
+        return new Response($this->container->get('form.csrf_provider')
+            ->generateCsrfToken('authenticate'));
+    }
 
     public function indexAction() {
-        return $this->render(
-                        'RJPublicBundle:ManageShop:index.html.twig'
-        );
+        return $this->render('RJPublicBundle:Default:index.html.twig');
     }
 
     public function emailAction($name = 'Radek') {

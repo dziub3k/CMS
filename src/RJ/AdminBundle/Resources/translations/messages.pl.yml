@@ -6,7 +6,9 @@ dialog:
     visits: wizyt
     uniqueVisits: unikalnych wizyt
     bounceRate: odrzuconych
-
+publicBundle:
+    base:
+        singin: "Zaloguj"
 adminBundle:
     base:
         view:

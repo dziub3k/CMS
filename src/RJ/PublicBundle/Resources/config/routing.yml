@@ -1,6 +1,6 @@
 rj_public_homepage:
     pattern:  /
-    defaults: { _controller: RJPublicBundle:ManageShop:index }
-rj_public_email:
-    pattern:  /email
-    defaults: { _controller: RJPublicBundle:ManageShop:email }
+    defaults: { _controller: RJPublicBundle:Default:index }
+#rj_public_email:
+#    pattern:  /email
+#    defaults: { _controller: RJPublicBundle:ManageShop:email }
