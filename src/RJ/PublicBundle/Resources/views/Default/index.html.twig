@@ -9,12 +9,12 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Project name</a>
+                <a class="navbar-brand" href="#">CMS - Radosław Jaros</a>
             </div>
             <div class="navbar-collapse collapse">
                 {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                    <div class="pull-right navbar-brand">
-                        {{ 'base.logged_in_as' | trans }}: {{ app.user.username }}
+                    <div class="navbar-form navbar-right">
+                        <span class="text-primary">{{ 'base.logged_in_as' | trans }}: {{ app.user.username }}</span>
                         <a class="btn btn-success" href="{{ path('fos_user_security_logout') }}">
                             {{ 'base.logout' | trans }}
                         </a>
