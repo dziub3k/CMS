@@ -11,3 +11,5 @@
 /web/css/compiled/*.css
 /.idea
 /grafika
+
+/composer.phar
