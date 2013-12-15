@@ -21,8 +21,11 @@ adminBundle:
         settings:
             settings: Ustawienia
             menu: Zarządzanie menu
-            site: Ogólne
+            general: Ogólne
+            site: strony
             modules: Zarządzanie modułami
+            design: Wygląd strony
+            pageLayout: Układ strony
         manageShop: Sklep
         cms: CMS
         server: Server

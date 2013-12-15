@@ -129,6 +129,11 @@ body {
               display: block;
               li {
                 height: 52px;
+                &.active {
+                  a {
+                    text-decoration: underline;
+                  }
+                }
                 a {
                   padding: 0 28px;
                   width: auto;
@@ -248,10 +253,18 @@ body {
       .box-content {
         ul {
           list-style-type: none;
+          &.sidebar-menu {
+
+          }
           li {
             .fontPtSans;
             border-bottom: 1px solid #C8C3C0;
             padding: 5px 0;
+            font-size: 15px;
+            a {
+              font-size: inherit;
+              color: #333;
+            }
           }
         }
         .options {
@@ -261,6 +274,7 @@ body {
           padding-bottom: 5px;
           .view-more {
             color: #afaeac ;
+            .fontPtSans;
           }
         }
       }

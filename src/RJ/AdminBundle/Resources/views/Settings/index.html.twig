@@ -3,16 +3,26 @@
 {% block title %}- {{ 'adminBundle.menu.settings.settings' | trans }}{% endblock %}
 
 {% block menuSettings %}active{% endblock %}
-
+{% block submenuGeneral %}active{% endblock %}
 {% block javascripts %}
     {{ parent() }}
 {% endblock %}
 {% block sidebar %}
     <section class="box">
-        <h2><i class="fa fa-bar-chart-o"></i>Podsumowanie<i class="fa fa-caret-down"></i></h2>
+        <h2><i class="fa fa-gear"></i><i class="fa fa-caret-down"></i></h2>
         <hr>
         <div class="box-content">
-            W trakcie...
+            <ul class="sidebar-menu">
+                <li>
+                    <a data-toggle="tab" href="#siteSettings">{{ 'adminBundle.menu.settings.settings' | trans }} {{ 'adminBundle.menu.settings.site' | trans }}</a> {# title, description, keywords, favico, jezyk domyslny, domena, kontakt (email), strona zablokowana? #}
+                </li>
+                <li>
+                    <a data-toggle="tab" href="#designSettings">{{ 'adminBundle.menu.settings.design' | trans }}</a> {# szablon #}
+                </li>
+                <li>
+                    <a data-toggle="tab" href="#pageLayoutSettings">{{ 'adminBundle.menu.settings.pageLayout' | trans }}</a>
+                </li>
+            </ul>
         </div>
     </section>
     <section class="box">
@@ -32,66 +42,7 @@
 {% endblock %}
 
 {% block body %}
-    <section class="box">
-        <h2><i class="fa fa-comments"></i>Ostatnie komentarze<i class="fa fa-caret-down"></i></h2>
-        <hr>
-        <div class="box-content">
-            <ul class="latest-comments">
-                <li>
-                    <table>
-                        <tr>
-                            <td class="avatar">
-                                <img src="{{ asset('/images/avatars/avatar_male_dark_on_clear_48x48.png') }}">
-                            </td>
-                            <td class="comment-content">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam a vulputate justo, in pharetra augue. Sed pellentesque sem quis tortor faucibus placerat. In imperdiet ut turpis eu fermentum. Nulla ut ipsum ac nisl tempor posuere. Mauris lacinia eros non imperdiet luctus.
-                            </td>
-                            <td class="options">
-                                <a class="aprove" href="javascript:void(0);"><i class="fa fa-check"></i>{{ 'adminBundle.comment.aprove' | trans }}</a>
-                                <a class="spam" href="javascript:void(0);"><i class="fa fa-warning"></i>{{ 'adminBundle.comment.spam' | trans }}</a>
-                                <a class="trash" href="javascript:void(0);"><i class="fa fa-plus"></i>{{ 'adminBundle.comment.trash' | trans }}</a>
-                                <a class="delete" href="javascript:void(0);"><i class="fa fa-times"></i>{{ 'adminBundle.comment.delete' | trans }}</a>
-                            </td>
-                        </tr>
-                    </table>
-                </li>
-                <li>
-                    <table>
-                        <tr>
-                            <td class="avatar">
-                                <img src="{{ asset('/images/avatars/avatar_male_dark_on_clear_48x48.png') }}">
-                            </td>
-                            <td class="comment-content">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam a vulputate justo, in pharetra augue. Sed pellentesque sem quis tortor faucibus placerat. In imperdiet ut turpis eu fermentum. Nulla ut ipsum ac nisl tempor posuere. Mauris lacinia eros non imperdiet luctus.
-                            </td>
-                            <td class="options">
-                                <a class="aprove" href="javascript:void(0);"><i class="fa fa-check"></i>{{ 'adminBundle.comment.aprove' | trans }}</a>
-                                <a class="spam" href="javascript:void(0);"><i class="fa fa-warning"></i>{{ 'adminBundle.comment.spam' | trans }}</a>
-                                <a class="trash" href="javascript:void(0);"><i class="fa fa-plus"></i>{{ 'adminBundle.comment.trash' | trans }}</a>
-                                <a class="delete" href="javascript:void(0);"><i class="fa fa-times"></i>{{ 'adminBundle.comment.delete' | trans }}</a>
-                            </td>
-                        </tr>
-                    </table>
-                </li>
-                <li>
-                    <table>
-                        <tr>
-                            <td class="avatar">
-                                <img src="{{ asset('/images/avatars/avatar_male_dark_on_clear_48x48.png') }}">
-                            </td>
-                            <td class="comment-content">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam a vulputate justo, in pharetra augue. Sed pellentesque sem quis tortor faucibus placerat. In imperdiet ut turpis eu fermentum. Nulla ut ipsum ac nisl tempor posuere. Mauris lacinia eros non imperdiet luctus.
-                            </td>
-                            <td class="options">
-                                <a class="aprove" href="javascript:void(0);"><i class="fa fa-check"></i>{{ 'adminBundle.comment.aprove' | trans }}</a>
-                                <a class="spam" href="javascript:void(0);"><i class="fa fa-warning"></i>{{ 'adminBundle.comment.spam' | trans }}</a>
-                                <a class="trash" href="javascript:void(0);"><i class="fa fa-plus"></i>{{ 'adminBundle.comment.trash' | trans }}</a>
-                                <a class="delete" href="javascript:void(0);"><i class="fa fa-times"></i>{{ 'adminBundle.comment.delete' | trans }}</a>
-                            </td>
-                        </tr>
-                    </table>
-                </li>
-            </ul>
-        </div>
-    </section>
+    {% include 'RJAdminBundle:Settings:General/siteSettings.html.twig' %}
+    {% include 'RJAdminBundle:Settings:General/designSettings.html.twig' %}
+    {% include 'RJAdminBundle:Settings:General/pageLayoutSettings.html.twig' %}
 {% endblock %}

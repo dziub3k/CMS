@@ -14,7 +14,7 @@
             <div class="navbar-collapse collapse">
                 {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                     <div class="navbar-form navbar-right">
-                        <span class="text-primary">{{ 'base.logged_in_as' | trans }}: {{ app.user.username }}</span>
+                        <span class="text-primary logged-user">{{ 'base.logged_in_as' | trans }}: {{ app.user.username }}</span>
                         <a class="btn btn-success" href="{{ path('fos_user_security_logout') }}">
                             {{ 'base.logout' | trans }}
                         </a>

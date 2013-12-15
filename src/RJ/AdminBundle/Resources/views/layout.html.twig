@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="//code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
     <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="//code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
     {# charts #}
     <script src="{{ asset('bundles/obhighcharts/js/highcharts/highcharts.js') }}"></script>
     <script src="{{ asset('bundles/obhighcharts/js/highcharts/modules/exporting.js') }}"></script>
@@ -77,8 +78,8 @@
             <li class="{% block menuSettings %}{% endblock %}">
                 <a href="{{ path('rj_admin_settings') }}"><i class="fa fa-wrench"></i> {{ 'adminBundle.menu.settings.settings' | trans }}</a>
                 <ul>
-                    <li>
-                        <a href="">{{ 'adminBundle.menu.settings.site' | trans }}</a>
+                    <li class="{% block submenuGeneral %}{% endblock %}">
+                        <a href="">{{ 'adminBundle.menu.settings.general' | trans }}</a>
                     </li>
                     <li>
                         <a href="">{{ 'adminBundle.menu.settings.menu' | trans }}</a>
