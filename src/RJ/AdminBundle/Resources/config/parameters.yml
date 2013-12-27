@@ -1,0 +1,11 @@
+parameters:
+    domain: cms.radoslawjaros.pl
+    version: '1.0'
+    language: pl
+    siteName: 'CMS Radosław Jaros'
+    siteDescription: null
+    siteKeyWords: null
+    contactEmail: null
+    rsaPub: null
+    rsaPrivate: null
+    flEnable: true

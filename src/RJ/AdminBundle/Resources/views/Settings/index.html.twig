@@ -14,35 +14,21 @@
         <div class="box-content">
             <ul class="sidebar-menu">
                 <li>
-                    <a data-toggle="tab" href="#siteSettings">{{ 'adminBundle.menu.settings.settings' | trans }} {{ 'adminBundle.menu.settings.site' | trans }}</a> {# title, description, keywords, favico, jezyk domyslny, domena, kontakt (email), strona zablokowana? #}
+                    <a data-toggle="tab" href="#siteSettings">{{ 'adminBundle.menu.settings.settings' | trans }} {{ 'adminBundle.menu.settings.site' | trans }}</a>
                 </li>
                 <li>
-                    <a data-toggle="tab" href="#designSettings">{{ 'adminBundle.menu.settings.design' | trans }}</a> {# szablon #}
+                    <a data-toggle="tab" href="#designSettings" class="text-strike">{{ 'adminBundle.menu.settings.design' | trans }}</a> {# szablon #}
                 </li>
                 <li>
-                    <a data-toggle="tab" href="#pageLayoutSettings">{{ 'adminBundle.menu.settings.pageLayout' | trans }}</a>
+                    <a data-toggle="tab" href="#pageLayoutSettings" class="text-strike">{{ 'adminBundle.menu.settings.pageLayout' | trans }}</a>
                 </li>
             </ul>
-        </div>
-    </section>
-    <section class="box">
-        <h2><i class="fa fa-archive"></i>Archiwum raportów<i class="fa fa-caret-down"></i></h2>
-        <hr>
-        <div class="box-content">
-            <ul>
-                <li>Lore</li>
-                <li>Ipsum</li>
-                <li>dasd</li>
-            </ul>
-            <div class="options">
-                <a class="view-more" href="javascript:void(0);">{{ 'adminBundle.base.view.more' | trans }}</a>
-            </div>
         </div>
     </section>
 {% endblock %}
 
 {% block body %}
-    {% include 'RJAdminBundle:Settings:General/siteSettings.html.twig' %}
+    {% include 'RJAdminBundle:Settings:General/siteSettings.html.twig' with { form: siteSettingsForm }%}
     {% include 'RJAdminBundle:Settings:General/designSettings.html.twig' %}
     {% include 'RJAdminBundle:Settings:General/pageLayoutSettings.html.twig' %}
 {% endblock %}

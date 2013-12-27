@@ -2,6 +2,7 @@
 
 namespace RJ\AdminBundle\DependencyInjection;
 
+use Symfony\Component\Config\Definition\Exception\Exception;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
@@ -24,5 +25,11 @@ class RJAdminExtension extends Extension
 
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');
+        try {
+            $loader->load('parameters.yml');
+        } catch (\Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+
     }
 }

@@ -1,6 +1,3 @@
-parameters:
-#    rj_admin.example.class: RJ\AdminBundle\Example
-
 services:
 #    rj_admin.example:
 #        class: %rj_admin.example.class%
