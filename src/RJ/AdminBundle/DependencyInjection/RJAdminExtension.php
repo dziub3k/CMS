@@ -2,7 +2,6 @@
 
 namespace RJ\AdminBundle\DependencyInjection;
 
-use Symfony\Component\Config\Definition\Exception\Exception;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
@@ -21,14 +20,14 @@ class RJAdminExtension extends Extension
     public function load(array $configs, ContainerBuilder $container)
     {
         $configuration = new Configuration();
-        $config = $this->processConfiguration($configuration, $configs);
+        $this->processConfiguration($configuration, $configs);
 
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');
         try {
             $loader->load('parameters.yml');
         } catch (\Exception $e) {
-            throw new Exception($e->getMessage());
+            trigger_error('parameters.yml doesen\'t exists' , E_USER_NOTICE);
         }
 
     }

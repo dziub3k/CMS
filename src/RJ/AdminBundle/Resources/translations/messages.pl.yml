@@ -12,6 +12,8 @@ dialog:
     uniqueVisits: unikalnych wizyt
     bounceRate: odrzuconych
 publicBundle:
+    fos:
+        username: Użytkownik
     base:
         singin: "Zaloguj"
 adminBundle:

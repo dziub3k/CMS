@@ -10,8 +10,14 @@ class SettingsController extends Controller {
 
     public function indexAction()
     {
+        $request = $this->container->get('request');
+
         $settings = new Settings($this->get('kernel'));
         $siteSettingsForm = $this->createForm(new SettingsType(), $settings);
+        $siteSettingsForm->handleRequest($request);
+        if ($siteSettingsForm->isValid()) {
+            $settings->saveYaml();
+        }
 
         return $this->render(
             'RJAdminBundle:Settings:index.html.twig',

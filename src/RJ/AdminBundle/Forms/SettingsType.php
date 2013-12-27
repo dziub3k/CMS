@@ -53,12 +53,7 @@ class SettingsType extends AbstractType
             )
             ->add(
                 'flEnable',
-                'choice',
-                array(
-                    'choices' => array('flEnable'),
-                    'multiple' => true,
-                    'expanded' => true
-                )
+                'checkbox'
             )
             ->add(
                 'save',

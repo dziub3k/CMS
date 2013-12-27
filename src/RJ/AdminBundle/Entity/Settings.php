@@ -2,15 +2,16 @@
 
 namespace RJ\AdminBundle\Entity;
 
+use Symfony\Component\DependencyInjection\ContainerAware;
 use Symfony\Component\Yaml\Dumper;
-use Symfony\Component\Input\ArgvInput;
+use Symfony\Component\Console\Input\ArgvInput;
 use Symfony\Bundle\FrameworkBundle\Console\Application;
 use Symfony\Component\Yaml\Parser;
 
 /**
  * Settings
  */
-class Settings
+class Settings extends ContainerAware
 {
     private $parameters;
 
@@ -38,11 +39,11 @@ class Settings
 
     private $path;
 
-    public function __construct($kernel)
+    public function __construct($kernel = null)
     {
         $this->path = __DIR__ . '/../Resources/config/parameters.yml';
-        $this->kernel = $kernel;
         $this->parameters = array();
+        $this->kernel = $kernel;
         $this->loadFile();
     }
 
@@ -234,7 +235,7 @@ class Settings
 
     private function clearCache ()
     {
-        $input = new ArgvInput(array('console','cache:clear'));
+        $input = new ArgvInput(array('console','cache:warmup'));
         $application = new Application($this->kernel);
         $application->run($input);
     }
@@ -242,18 +243,19 @@ class Settings
     private function  loadFile()
     {
         $parser = new Parser();
-        $yaml = $parser->parse(file_get_contents($this->path));
-        $parameters = $yaml['parameters'];
-        $this->domain = $parameters['domain'];
-        $this->version = $parameters['version'];
-        $this->language = $parameters['language'];
-        $this->siteName = $parameters['siteName'];
-        $this->siteDescription = $parameters['siteDescription'];
-        $this->siteKeyWords = $parameters['siteKeyWords'];
-        $this->contactEmail = $parameters['contactEmail'];
-        $this->rsaPub = $parameters['rsaPub'];
-        $this->rsaPrivate = $parameters['rsaPrivate'];
-        $this->flEnable = array('flEnable' => $parameters['flEnable']);
-        var_dump($this->flEnable);
+        if(file_exists($this->path)) {
+            $yaml = $parser->parse(file_get_contents($this->path));
+            $parameters = $yaml['parameters'];
+            $this->domain = $parameters['domain'];
+            $this->version = $parameters['version'];
+            $this->language = $parameters['language'];
+            $this->siteName = $parameters['siteName'];
+            $this->siteDescription = $parameters['siteDescription'];
+            $this->siteKeyWords = $parameters['siteKeyWords'];
+            $this->contactEmail = $parameters['contactEmail'];
+            $this->rsaPub = $parameters['rsaPub'];
+            $this->rsaPrivate = $parameters['rsaPrivate'];
+            $this->flEnable = $parameters['flEnable'];
+        }
     }
 }
