@@ -5,8 +5,10 @@ namespace RJ\AdminBundle\Entity;
 use Symfony\Component\DependencyInjection\ContainerAware;
 use Symfony\Component\Yaml\Dumper;
 use Symfony\Component\Console\Input\ArgvInput;
+use Symfony\Component\Console\Output\ConsoleOutput;
 use Symfony\Bundle\FrameworkBundle\Console\Application;
 use Symfony\Component\Yaml\Parser;
+
 
 /**
  * Settings
@@ -69,8 +71,8 @@ class Settings extends ContainerAware
         $yamlDump = array('parameters' => $this->parameters);
         $yamlContent = $dumper->dump($yamlDump, 2);
         file_put_contents($this->path, $yamlContent);
-
-        $this->clearCache();
+        //TODO: gdy udostepnia na serwerze komende symfony2
+        //$this->clearCache();
     }
 
     /**
@@ -235,9 +237,14 @@ class Settings extends ContainerAware
 
     private function clearCache ()
     {
-        $input = new ArgvInput(array('console','cache:warmup'));
-        $application = new Application($this->kernel);
-        $application->run($input);
+        $old_path = getcwd();
+        var_dump(ini_get('safe_mode'),$old_path);
+
+        chdir($old_path. '/../');
+        echo '<pre>';
+        var_dump(shell_exec('symfony2'));
+        exit;
+        chdir($old_path);
     }
 
     private function  loadFile()

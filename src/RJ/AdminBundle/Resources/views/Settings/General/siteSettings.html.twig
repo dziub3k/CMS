@@ -1,7 +1,23 @@
-<section class="box absolute fade in active" id="siteSettings">
+<section class="box fade in active" id="siteSettings">
     <h2><i class="fa fa-gear"></i>{{ 'adminBundle.menu.settings.settings' | trans }} {{ 'adminBundle.menu.settings.site' | trans }}<i class="fa fa-caret-down"></i></h2>
     <hr>
     <div class="box-content" >
-        {{ form(form) }}
+        {{ form_start(form, {'attr': {'class': 'form-horizontal'}} ) }}
+            {{ form_errors(form) }}
+
+                    {{ form_label(form.domain) }}
+                    {{ form_widget(form.domain) }}
+
+                {{ form_row(form.version) }}
+                {{ form_row(form.language) }}
+                {{ form_row(form.siteName) }}
+                {{ form_row(form.siteDescription) }}
+                {{ form_row(form.siteKeyWords) }}
+                {{ form_row(form.contactEmail) }}
+                {{ form_row(form.rsaPub) }}
+                {{ form_row(form.rsaPrivate) }}
+                {{ form_row(form.flEnable) }}
+                {{ form_widget(form.save) }}
+        {{ form_end(form) }}
     </div>
 </section>
