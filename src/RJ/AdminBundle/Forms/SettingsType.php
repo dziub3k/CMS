@@ -13,11 +13,27 @@ class SettingsType extends AbstractType
         $builder
             ->add(
                 'domain',
-                'text'
+                'text',
+                array(
+                    'attr' => array(
+                        'class' => 'form-control'
+                    ),
+                    'label_attr' => array(
+                        'class' => 'col-sm-2 control-label'
+                    )
+                )
             )
             ->add(
                 'version',
-                'text'
+                'text',
+                array(
+                    'attr' => array(
+                        'class' => 'form-control'
+                    ),
+                    'label_attr' => array(
+                        'class' => 'col-sm-2 control-label'
+                    )
+                )
             )
             ->add(
                 'language',
@@ -25,41 +41,107 @@ class SettingsType extends AbstractType
                 array(
                     'choices' => array('pl' => 'general.language.pl', 'en' => 'general.language.en'),
                     'multiple' => false,
-                    'expanded' => true
+                    'expanded' => false,
+                    'attr' => array(
+                        'class' => 'selectpicker form-control'
+                    ),
+                    'label_attr' => array(
+                        'class' => 'col-sm-2 control-label'
+                    )
                 )
             )
             ->add(
                 'siteName',
-                'text'
+                'text',
+                array(
+                    'attr' => array(
+                        'class' => 'form-control'
+                    ),
+                    'label_attr' => array(
+                        'class' => 'col-sm-2 control-label'
+                    )
+                )
             )
             ->add(
-                'siteDescription'
+                'siteDescription',
+                'text',
+                array(
+                    'attr' => array(
+                        'class' => 'form-control'
+                    ),
+                    'label_attr' => array(
+                        'class' => 'col-sm-2 control-label'
+                    )
+                )
             )
             ->add(
                 'siteKeyWords',
-                'text'
+                'text',
+                array(
+                    'attr' => array(
+                        'class' => 'form-control'
+                    ),
+                    'label_attr' => array(
+                        'class' => 'col-sm-2 control-label'
+                    )
+                )
             )
             ->add(
                 'contactEmail',
-                'email'
+                'email',
+                array(
+                    'attr' => array(
+                        'class' => 'form-control'
+                    ),
+                    'label_attr' => array(
+                        'class' => 'col-sm-2 control-label'
+                    )
+                )
             )
             ->add(
                 'rsaPub',
-                'text'
+                'text',
+                array(
+                    'attr' => array(
+                        'class' => 'form-control'
+                    ),
+                    'label_attr' => array(
+                        'class' => 'col-sm-2 control-label'
+                    )
+                )
             )
             ->add(
                 'rsaPrivate',
-                'text'
+                'text',
+                array(
+                    'attr' => array(
+                        'class' => 'form-control'
+                    ),
+                    'label_attr' => array(
+                        'class' => 'col-sm-2 control-label'
+                    )
+                )
             )
             ->add(
                 'flEnable',
-                'checkbox'
+                'checkbox',
+                array(
+                    'attr' => array(
+                        'class' => 'checkbox'
+                    ),
+                    'label_attr' => array(
+                        'class' => 'col-sm-2 control-label'
+                    )
+                )
             )
             ->add(
                 'save',
                 'submit',
                 array(
-                    'label' => 'general.save'
+                    'label' => 'general.save',
+                    'attr' => array(
+                        'class' => 'btn btn-success'
+                    )
                 )
             )
         ;

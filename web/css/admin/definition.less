@@ -1,8 +1,20 @@
 @textColorInMenu: #1d1d1d;
 @activeBackgroundMenu: #DFDEDA;
-* {
-  outline: none;
+/* usunięcie outline */
+a:focus, a:active,
+button::-moz-focus-inner,
+input[type="reset"]::-moz-focus-inner,
+input[type="button"]::-moz-focus-inner,
+input[type="submit"]::-moz-focus-inner,
+select::-moz-focus-inner,
+input[type="file"] > input[type="button"]::-moz-focus-inner {
+  outline : 0 !important;
 }
+.bootstrap-select .btn:focus {
+  outline: 0 !important;
+  outline: 5px auto -webkit-focus-ring-color !important;
+}
+
 .fontPtSans {
   font-family: 'PT Sans', Tahoma, Geneva, sans-serif;
   font-weight: normal;

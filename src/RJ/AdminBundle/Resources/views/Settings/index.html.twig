@@ -4,9 +4,15 @@
 
 {% block menuSettings %}active{% endblock %}
 {% block submenuGeneral %}active{% endblock %}
+
 {% block javascripts %}
+    {# TODO: kiedyś do uporządkowania JS-y #}
     {{ parent() }}
+    $(function() {
+        $('.selectpicker').selectpicker('refresh');
+    });
 {% endblock %}
+
 {% block sidebar %}
     <section class="box">
         <h2><i class="fa fa-gear"></i><i class="fa fa-caret-down"></i></h2>

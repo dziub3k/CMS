@@ -1,23 +1,76 @@
 <section class="box fade in active" id="siteSettings">
-    <h2><i class="fa fa-gear"></i>{{ 'adminBundle.menu.settings.settings' | trans }} {{ 'adminBundle.menu.settings.site' | trans }}<i class="fa fa-caret-down"></i></h2>
+    <h2>
+        <i class="fa fa-gear"></i>{{ 'adminBundle.menu.settings.settings' | trans }} {{ 'adminBundle.menu.settings.site' | trans }}
+        <i class="fa fa-caret-down"></i></h2>
     <hr>
-    <div class="box-content" >
-        {{ form_start(form, {'attr': {'class': 'form-horizontal'}} ) }}
-            {{ form_errors(form) }}
-
-                    {{ form_label(form.domain) }}
-                    {{ form_widget(form.domain) }}
-
-                {{ form_row(form.version) }}
-                {{ form_row(form.language) }}
-                {{ form_row(form.siteName) }}
-                {{ form_row(form.siteDescription) }}
-                {{ form_row(form.siteKeyWords) }}
-                {{ form_row(form.contactEmail) }}
-                {{ form_row(form.rsaPub) }}
-                {{ form_row(form.rsaPrivate) }}
-                {{ form_row(form.flEnable) }}
+    <div class="box-content">
+        {{ form_start(form, {'attr': {'class': 'form-horizontal' }} ) }}
+        {{ form_errors(form) }}
+        <div class="form-group">
+            {{ form_label(form.domain) }}
+            <div class="col-sm-10">
+                {{ form_widget(form.domain) }}
+            </div>
+        </div>
+        <div class="form-group">
+            {{ form_label(form.version) }}
+            <div class="col-sm-10">
+                {{ form_widget(form.version) }}
+            </div>
+        </div>
+        <div class="form-group">
+            {{ form_label(form.language) }}
+            <div class="col-sm-10">
+                {{ form_widget(form.language) }}
+            </div>
+        </div>
+        <div class="form-group">
+            {{ form_label(form.siteName) }}
+            <div class="col-sm-10">
+                {{ form_widget(form.siteName) }}
+            </div>
+        </div>
+        <div class="form-group">
+            {{ form_label(form.siteDescription) }}
+            <div class="col-sm-10">
+                {{ form_widget(form.siteDescription) }}
+            </div>
+        </div>
+        <div class="form-group">
+            {{ form_label(form.siteKeyWords) }}
+            <div class="col-sm-10">
+                {{ form_widget(form.siteKeyWords) }}
+            </div>
+        </div>
+        <div class="form-group">
+            {{ form_label(form.contactEmail) }}
+            <div class="col-sm-10">
+                {{ form_widget(form.contactEmail) }}
+            </div>
+        </div>
+        <div class="form-group">
+            {{ form_label(form.rsaPub) }}
+            <div class="col-sm-10">
+                {{ form_widget(form.rsaPub) }}
+            </div>
+        </div>
+        <div class="form-group">
+            {{ form_label(form.rsaPrivate) }}
+            <div class="col-sm-10">
+                {{ form_widget(form.rsaPrivate) }}
+            </div>
+        </div>
+        <div class="form-group">
+                {{ form_label(form.flEnable) }}
+                <div class="col-sm-10">
+                    {{ form_widget(form.flEnable) }}
+                </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
                 {{ form_widget(form.save) }}
+            </div>
+        </div>
         {{ form_end(form) }}
     </div>
 </section>
