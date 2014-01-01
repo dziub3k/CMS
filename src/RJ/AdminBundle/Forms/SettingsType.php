@@ -12,9 +12,23 @@ class SettingsType extends AbstractType
     {
         $builder
             ->add(
+                'copyright',
+                'text',
+                array(
+                    'label' => 'adminBundle.siteSettings.copyright',
+                    'attr' => array(
+                        'class' => 'form-control'
+                    ),
+                    'label_attr' => array(
+                        'class' => 'col-sm-2 control-label'
+                    )
+                )
+            )
+            ->add(
                 'domain',
                 'text',
                 array(
+                    'label' => 'adminBundle.siteSettings.domain',
                     'attr' => array(
                         'class' => 'form-control'
                     ),
@@ -27,6 +41,7 @@ class SettingsType extends AbstractType
                 'version',
                 'text',
                 array(
+                    'label' => 'adminBundle.siteSettings.version',
                     'attr' => array(
                         'class' => 'form-control'
                     ),
@@ -42,6 +57,7 @@ class SettingsType extends AbstractType
                     'choices' => array('pl' => 'general.language.pl', 'en' => 'general.language.en'),
                     'multiple' => false,
                     'expanded' => false,
+                    'label' => 'adminBundle.siteSettings.language',
                     'attr' => array(
                         'class' => 'selectpicker form-control'
                     ),
@@ -54,6 +70,7 @@ class SettingsType extends AbstractType
                 'siteName',
                 'text',
                 array(
+                    'label' => 'adminBundle.siteSettings.siteName',
                     'attr' => array(
                         'class' => 'form-control'
                     ),
@@ -66,6 +83,7 @@ class SettingsType extends AbstractType
                 'siteDescription',
                 'text',
                 array(
+                    'label' => 'adminBundle.siteSettings.siteDescription',
                     'attr' => array(
                         'class' => 'form-control'
                     ),
@@ -78,6 +96,7 @@ class SettingsType extends AbstractType
                 'siteKeyWords',
                 'text',
                 array(
+                    'label' => 'adminBundle.siteSettings.siteKeyWords',
                     'attr' => array(
                         'class' => 'form-control'
                     ),
@@ -90,6 +109,7 @@ class SettingsType extends AbstractType
                 'contactEmail',
                 'email',
                 array(
+                    'label' => 'adminBundle.siteSettings.contactMail',
                     'attr' => array(
                         'class' => 'form-control'
                     ),
@@ -100,8 +120,9 @@ class SettingsType extends AbstractType
             )
             ->add(
                 'rsaPub',
-                'text',
+                'textarea',
                 array(
+                    'label' => 'adminBundle.siteSettings.rsa.pub',
                     'attr' => array(
                         'class' => 'form-control'
                     ),
@@ -112,8 +133,9 @@ class SettingsType extends AbstractType
             )
             ->add(
                 'rsaPrivate',
-                'text',
+                'textarea',
                 array(
+                    'label' => 'adminBundle.siteSettings.rsa.priv',
                     'attr' => array(
                         'class' => 'form-control'
                     ),
@@ -126,6 +148,7 @@ class SettingsType extends AbstractType
                 'flEnable',
                 'checkbox',
                 array(
+                    'label' => 'adminBundle.siteSettings.flEnable',
                     'attr' => array(
                         'class' => 'checkbox'
                     ),

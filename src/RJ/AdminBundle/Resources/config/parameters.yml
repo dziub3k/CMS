@@ -1,4 +1,5 @@
 parameters:
+    copyright: 'Radosław Jaros'
     domain: cms.radoslawjaros.pl
     version: '1.0'
     language: pl

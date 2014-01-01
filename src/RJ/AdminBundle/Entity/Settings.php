@@ -5,10 +5,8 @@ namespace RJ\AdminBundle\Entity;
 use Symfony\Component\DependencyInjection\ContainerAware;
 use Symfony\Component\Yaml\Dumper;
 use Symfony\Component\Console\Input\ArgvInput;
-use Symfony\Component\Console\Output\ConsoleOutput;
 use Symfony\Bundle\FrameworkBundle\Console\Application;
 use Symfony\Component\Yaml\Parser;
-
 
 /**
  * Settings
@@ -16,6 +14,8 @@ use Symfony\Component\Yaml\Parser;
 class Settings extends ContainerAware
 {
     private $parameters;
+
+    private $copyright;
 
     private $domain;
 
@@ -51,6 +51,7 @@ class Settings extends ContainerAware
 
     public function setParameters()
     {
+        $this->parameters['copyright'] = $this->copyright;
         $this->parameters['domain'] = $this->domain;
         $this->parameters['version'] = $this->version;
         $this->parameters['language'] = $this->language;
@@ -71,8 +72,24 @@ class Settings extends ContainerAware
         $yamlDump = array('parameters' => $this->parameters);
         $yamlContent = $dumper->dump($yamlDump, 2);
         file_put_contents($this->path, $yamlContent);
-        //TODO: gdy udostepnia na serwerze komende symfony2
-        //$this->clearCache();
+
+        $this->clearCache();
+    }
+
+    /**
+     * @param string $copyright
+     */
+    public function setCopyright($copyright)
+    {
+        $this->copyright = $copyright;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCopyright()
+    {
+        return $this->copyright;
     }
 
     /**
@@ -237,14 +254,11 @@ class Settings extends ContainerAware
 
     private function clearCache ()
     {
-        $old_path = getcwd();
-        var_dump(ini_get('safe_mode'),$old_path);
-
-        chdir($old_path. '/../');
-        echo '<pre>';
-        var_dump(shell_exec('symfony2'));
-        exit;
-        chdir($old_path);
+        $input = new ArgvInput(array('console','cache:clear'));
+        $application = new Application($this->kernel);
+        $application->setAutoExit(false);
+        $application->run($input);
+        sleep(5);
     }
 
     private function  loadFile()
@@ -253,6 +267,7 @@ class Settings extends ContainerAware
         if(file_exists($this->path)) {
             $yaml = $parser->parse(file_get_contents($this->path));
             $parameters = $yaml['parameters'];
+            $this->copyright = $parameters['copyright'];
             $this->domain = $parameters['domain'];
             $this->version = $parameters['version'];
             $this->language = $parameters['language'];

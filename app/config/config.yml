@@ -1,10 +1,11 @@
 imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
+    - { resource: @RJAdminBundle/Resources/config/parameters.yml }
 
 framework:
     #esi:             ~
-    translator:      { fallback: %locale% }
+    translator:      { fallback: %language% }
     secret:          %secret%
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
@@ -17,8 +18,11 @@ framework:
         #assets_version: SomeVersionScheme
     default_locale:  "%locale%"
     trusted_proxies: ~
-    session: ~
-        #save_path: %kernel.root_dir%/var/sessions
+    session:
+        handler_id: ~
+        cookie_domain: %domain%
+        cookie_lifetime: 3600
+        save_path: %kernel.root_dir%/var/sessions
     fragments:       ~
     http_method_override: true
 
@@ -26,6 +30,16 @@ framework:
 twig:
     debug:            %kernel.debug%
     strict_variables: %kernel.debug%
+    globals:
+        cms:
+            title: "%siteName%"
+            description: "%siteDescription%"
+            keywords: "%siteKeyWords%"
+            siteEnable: "%flEnable%"
+            contactEmail: "%contactEmail%"
+            version: "%version%"
+            language: "%language%"
+            copyright: "Radosław Jaros"
 
 # Assetic Configuration
 assetic:

@@ -41,3 +41,17 @@ adminBundle:
         spam: Spam
         delete: Usuń
         trash: Do kosza
+    siteSettings:
+        copyright: Prawa autorskie
+        domain: Domena
+        version: Wersja
+        language: Język
+        siteName: Nazwa strony
+        siteDescription: Opis
+        siteKeyWords: Słowa kluczowe
+        contactMail: E-mail kontaktowy
+        rsa:
+            pub: Klucz Publiczny
+            priv: Klucz prywatny
+        flEnable: Strona włączona
+

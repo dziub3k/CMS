@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>{% block title %}Radosław Jaros  - CMS{% endblock %}</title>
-    <meta name="description" content="{% block description %}{% endblock %}">
-    <meta name="keywords" content="{% block keywords %}{% endblock %}">
-    <meta name="author" content="{% block author %}{% endblock %}">
+    <title>{% block title %}{{ cms.title }}{% endblock %}</title>
+    <meta name="description" content="{% block description %}{{ cms.description }}{% endblock %}">
+    <meta name="keywords" content="{% block keywords %}{{ cms.keywords }}{% endblock %}">
+    <meta name="author" content="Radosław Jaros, {{ cms.contactEmail }}">
+    <meta name="copyright" content="Radosław Jaros">
+    <meta name="language" content="{{ cms.language }}">
     <meta charset="UTF-8">
 
     {% stylesheets

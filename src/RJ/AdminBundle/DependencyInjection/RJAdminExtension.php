@@ -24,11 +24,5 @@ class RJAdminExtension extends Extension
 
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');
-        try {
-            $loader->load('parameters.yml');
-        } catch (\Exception $e) {
-            trigger_error('parameters.yml doesen\'t exists' , E_USER_NOTICE);
-        }
-
     }
 }
