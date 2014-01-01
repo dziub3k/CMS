@@ -1,0 +1,12 @@
+{% extends 'RJAdminBundle:Menu:menuContent.html.twig' %}
+
+{% block menuContentTitle %}
+    - {{ 'adminBundle.manageMenu.add' | trans }}
+{% endblock %}
+
+{% block menuContent %}
+    {{ form(form) }}
+    <nav class="text-right">
+        <a class="btn btn-success" href="{{ path('rj_admin_settings_menu_add') }}">{{ 'general.save' | trans }}</a>
+    </nav>
+{% endblock %}

@@ -3,6 +3,9 @@ general:
     language:
         pl: Polski
         en: Angielski
+    add: Dodaj
+    remove: Usuń
+    edit: Edytuj
 dialog:
     hello: Witaj
     youHave: Masz
@@ -54,4 +57,5 @@ adminBundle:
             pub: Klucz Publiczny
             priv: Klucz prywatny
         flEnable: Strona włączona
-
+    manageMenu:
+        add: dodawanie nowej pozycji

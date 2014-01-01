@@ -2,6 +2,22 @@ rj_admin_homepage:
     pattern:  /
     defaults: { _controller: RJAdminBundle:Default:index }
 
-rj_admin_settings:
-    pattern: /settings
+rj_admin_settings_general:
+    pattern: /settings/general
     defaults: { _controller: RJAdminBundle:Settings:index }
+
+rj_admin_settings_menu:
+    pattern: /settings/menu
+    defaults: { _controller: RJAdminBundle:Menu:index }
+
+rj_admin_settings_menu_add:
+    pattern: /settings/menu/add
+    defaults: { _controller: RJAdminBundle:Menu:add }
+
+rj_admin_settings_menu_edit:
+    pattern: /settings/menu/edit/{id}
+    defaults: { _controller: RJAdminBundle:Menu:edit }
+
+rj_admin_settings_menu_remove:
+    pattern: /settings/menu/remove/{id}
+    defaults: { _controller: RJAdminBundle:Menu:remove }

@@ -1,0 +1,30 @@
+{% extends 'RJAdminBundle::layout.html.twig' %}
+
+{% block title %}- {{ 'adminBundle.menu.settings.menu' | trans }}{% endblock %}
+
+{% block menuSettings %}active{% endblock %}
+{% block submenuCategory %}active{% endblock %}
+{% block mainContentMaxWidth %}maxWidth{% endblock %}
+
+{% block javascripts %}
+    {# TODO: kiedyś do uporządkowania JS-y #}
+    {{ parent() }}
+    $(function() {
+        $('.selectpicker').selectpicker('refresh');
+    });
+{% endblock %}
+
+{% block body %}
+    <section class="box">
+        <h2>
+            <i class="fa fa-list-ol"></i>
+            {{ 'adminBundle.menu.settings.menu' | trans }} {% block menuContentTitle %}{% endblock %}
+            <i class="fa fa-caret-down"></i>
+        </h2>
+        <hr>
+        <div class="box-content">
+            {% block menuContent %}
+            {% endblock %}
+        </div>
+    </section>
+{% endblock %}

@@ -24,6 +24,7 @@ class AppKernel extends Kernel
             new RJ\UserBundle\RJUserBundle(),
             new RJ\AdminBundle\RJAdminBundle(),
             new RJ\ShopBundle\RJShopBundle(),
+            new RJ\UtilitiesBundle\RJUtilitiesBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {           

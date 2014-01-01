@@ -2,10 +2,10 @@
 
 namespace RJ\AdminBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Ob\HighchartsBundle\Highcharts\Highchart;
+use RJ\UtilitiesBundle\Controller\BaseController;
 
-class DefaultController extends Controller
+class DefaultController extends BaseController
 {
     public function indexAction()
     {

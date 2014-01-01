@@ -4,9 +4,9 @@ namespace RJ\AdminBundle\Controller;
 
 use RJ\AdminBundle\Entity\Settings;
 use RJ\AdminBundle\Forms\SettingsType;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use RJ\UtilitiesBundle\Controller\BaseController;
 
-class SettingsController extends Controller {
+class SettingsController extends BaseController {
 
     public function indexAction()
     {
@@ -16,7 +16,7 @@ class SettingsController extends Controller {
         $siteSettingsForm->handleRequest($request);
         if ($siteSettingsForm->isValid()) {
             $settings->saveYaml();
-            $this->redirect($this->generateUrl('rj_admin_settings'));
+            $this->redirect($this->generateUrl('rj_admin_settings_general'));
         }
 
         return $this->render(
