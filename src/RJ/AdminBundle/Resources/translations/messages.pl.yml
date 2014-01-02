@@ -59,3 +59,11 @@ adminBundle:
         flEnable: Strona włączona
     manageMenu:
         add: dodawanie nowej pozycji
+        form:
+            name: Nazwa kategorii
+            parent: Kategoria nadrzędna
+            empty: Brak
+            tags: Słowa kluczowe
+            description: Opis
+            flShow: Pokazuj
+            flClickable: Pozycja klikalna

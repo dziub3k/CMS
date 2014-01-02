@@ -16,4 +16,12 @@ class BaseController extends Controller
         $session = $this->container->get('session');
         $session->getFlashBag()->add($type, $message);
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function getRepository($persistentObjectName, $persistentManagerName = null)
+    {
+        return $this->getDoctrine()->getRepository($persistentObjectName, $persistentManagerName);
+    }
 }

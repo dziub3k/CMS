@@ -45,30 +45,30 @@ class Category
     /**
      * @var string
      *
-     * @ORM\Column(name="tags", type="string", length=255)
+     * @ORM\Column(name="tags", type="string", length=255, nullable=true)
      */
     private $tags;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="description", type="string", length=255)
+     * @ORM\Column(name="description", type="string", length=255, nullable=true)
      */
     private $description;
 
     /**
      * @var boolean
      *
-     * @ORM\Column(name="fl_show", type="boolean")
+     * @ORM\Column(name="fl_show", type="boolean", options={"default" = true})
      */
-    private $flShow;
+    private $flShow = true;
 
     /**
-     * @var array
+     * @var boolean
      *
-     * @ORM\Column(name="extensions", type="json_array")
+     * @ORM\Column(name="fl_clickable", type="boolean", options={"default" = true})
      */
-    private $extensions;
+    private $flClickable = true;
 
     public function __construct()
     {
@@ -178,26 +178,26 @@ class Category
     }
 
     /**
-     * Set extensions
+     * Set flClickable
      *
-     * @param array $extensions
+     * @param boolean $flClickable
      * @return Category
      */
-    public function setExtensions($extensions)
+    public function setFlClickable($flClickable)
     {
-        $this->extensions = $extensions;
+        $this->flClickable = $flClickable;
 
         return $this;
     }
 
     /**
-     * Get extensions
+     * Get flClickable
      *
-     * @return array 
+     * @return boolean
      */
-    public function getExtensions()
+    public function getFlClickable()
     {
-        return $this->extensions;
+        return $this->flClickable;
     }
 
     /**
@@ -254,5 +254,10 @@ class Category
     public function getParent()
     {
         return $this->parent;
+    }
+
+    public function __toString()
+    {
+        return $this->name;
     }
 }
