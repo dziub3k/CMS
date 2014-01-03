@@ -4,12 +4,13 @@ namespace RJ\AdminBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * Category
- *
+ * @ORM\Entity()
  * @ORM\Table()
- * @ORM\Entity
+ * @Gedmo\TranslationEntity(class="RJ\AdminBundle\Entity\CategoryTranslation")
  */
 class Category
 {
@@ -39,6 +40,7 @@ class Category
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255)
+     * @Gedmo\Translatable
      */
     private $name;
 
@@ -70,9 +72,27 @@ class Category
      */
     private $flClickable = true;
 
+    /**
+     * @var string
+     *
+     * @Gedmo\Slug(fields={"name"})
+     * @ORM\Column(length=128, unique=true)
+     */
+    private $slug;
+
+    /**
+     * @ORM\OneToMany(
+     *     targetEntity="RJ\AdminBundle\Entity\CategoryTranslation",
+     *  mappedBy="object",
+     *  cascade={"persist", "remove"}
+     * )
+     */
+    private $translations;
+
     public function __construct()
     {
         $this->children = new ArrayCollection();
+        $this->translations = new ArrayCollection();
     }
 
     /**
@@ -152,6 +172,29 @@ class Category
     public function getDescription()
     {
         return $this->description;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     * @return Category
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->slug;
     }
 
     /**
@@ -254,6 +297,35 @@ class Category
     public function getParent()
     {
         return $this->parent;
+    }
+
+    public function addTranslation(CategoryTranslation $t)
+    {
+        if (!$this->translations->contains($t)) {
+            $this->translations[] = $t;
+            $t->setObject($this);
+        }
+    }
+    /**
+     * Set translations
+     *
+     * @param ArrayCollection $translations
+     * @return Category
+     */
+    /*public function setTranslations($translations)
+    {
+        $this->translations = $translations;
+        return $this;
+    }*/
+
+    /**
+     * Get translations
+     *
+     * @return ArrayCollection
+     */
+    public function getTranslations()
+    {
+        return $this->translations;
     }
 
     public function __toString()

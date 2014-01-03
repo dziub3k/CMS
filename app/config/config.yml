@@ -5,7 +5,7 @@ imports:
 
 framework:
     #esi:             ~
-    translator:      { fallback: %locale% }
+    translator:      { fallback: %language% }
     secret:          %secret%
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
@@ -16,7 +16,7 @@ framework:
     templating:
         engines: ['twig']
         #assets_version: SomeVersionScheme
-    default_locale:  "%locale%"
+    default_locale:  "%language%"
     trusted_proxies: ~
     session:
         handler_id: ~
@@ -74,7 +74,30 @@ doctrine:
     orm:
         auto_generate_proxy_classes: %kernel.debug%
         auto_mapping: true
-        
+        mappings:
+          translatable:
+              type: annotation
+              alias: Gedmo
+              prefix: Gedmo\Translatable\Entity
+              # make sure vendor library location is correct
+              dir: "%kernel.root_dir%/../vendor/gedmo/doctrine-extensions/lib/Gedmo/Translatable/Entity/MappedSuperclass"
+
+stof_doctrine_extensions:
+    default_locale: %language%
+    orm:
+        default:
+            sluggable: true
+            loggable: false
+            timestampable: false
+            tree: false
+            translatable: true
+
+a2lix_translation_form:
+    locales: [pl, en]       # [optional] Array of the translation locales (The default locale have to be excluded). Can also be specified in the form builder.
+    default_required: true     # [optional] Defaults to false. In this case, translation fields are not mark as required with HTML5.
+    manager_registry: doctrine
+    templating: "A2lixTranslationFormBundle::default.html.twig" # The default template is Twitter Bootstrap compatible. You can redefine your own template
+
 fos_user:
     db_driver: orm
     firewall_name: main
@@ -84,7 +107,7 @@ fos_user:
     registration:
         form:
             type: rj_user_registration
-    
+
 # Swiftmailer Configuration
 swiftmailer:
     transport: %mailer_transport%

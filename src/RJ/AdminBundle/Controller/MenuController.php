@@ -3,6 +3,7 @@
 namespace RJ\AdminBundle\Controller;
 
 use RJ\AdminBundle\Entity\Category;
+use RJ\AdminBundle\Entity\CategoryTranslation;
 use RJ\AdminBundle\Forms\CategoryType;
 use RJ\UtilitiesBundle\Controller\BaseController;
 
@@ -10,6 +11,15 @@ class MenuController extends BaseController {
 
     public function indexAction()
     {
+        /*em = $this->getDoctrine()->getManager();
+        $fruits = new Category;
+        $fruits->setParent(null);
+        $fruits->setName('Fruits');
+        $fruits->addTranslation(new CategoryTranslation('lt', 'name', 'Vaisiai'));
+        $fruits->addTranslation(new CategoryTranslation('ru', 'name', 'rus trans'));
+        $em->persist($fruits);
+        $em->flush();*/
+
         $categoryRepository = $this->getRepository('RJAdminBundle:Category');
         $categories = $categoryRepository->findBy(
             array(

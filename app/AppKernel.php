@@ -19,7 +19,9 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new Ob\HighchartsBundle\ObHighchartsBundle(),
-            
+            new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
+            new A2lix\TranslationFormBundle\A2lixTranslationFormBundle(),
+
             new RJ\PublicBundle\RJPublicBundle(),
             new RJ\UserBundle\RJUserBundle(),
             new RJ\AdminBundle\RJAdminBundle(),

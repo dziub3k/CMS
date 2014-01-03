@@ -15,13 +15,7 @@ class CategoryType extends AbstractType
         $builder
             ->add(
                 'name',
-                'text',
-                array(
-                    'label' => 'adminBundle.manageMenu.form.name',
-                    'attr' => array(
-                        'class' => 'form-control'
-                    )
-                )
+                'a2lix_translations'
             )
             ->add(
                 'parent',
@@ -40,6 +34,7 @@ class CategoryType extends AbstractType
                         },
                     'label' => 'adminBundle.manageMenu.form.parent',
                     'empty_value' => 'adminBundle.manageMenu.form.empty',
+                    'required' => false,
                     'attr' => array(
                         'class' => 'selectpicker form-control'
                     )
