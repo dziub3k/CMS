@@ -4,10 +4,11 @@ namespace RJ\AdminBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Yaml\Parser;
 
 /**
- * @ORM\Entity()
+ * @ORM\Entity(repositoryClass="Gedmo\Sortable\Entity\Repository\SortableRepository")
  */
 class Category
 {
@@ -46,6 +47,12 @@ class Category
      * @ORM\Column(name="fl_clickable", type="boolean", options={"default" = true})
      */
     protected $flClickable = true;
+
+    /**
+     * @Gedmo\SortablePosition
+     * @ORM\Column(name="position", type="integer")
+     */
+    protected $position;
 
     protected $translations;
 
@@ -109,6 +116,17 @@ class Category
     public function getFlClickable()
     {
         return $this->flClickable;
+    }
+
+    public function setPosition($position)
+    {
+        $this->position = $position;
+        return $this;
+    }
+
+    public function getPosition()
+    {
+        return $this->position;
     }
 
     /**

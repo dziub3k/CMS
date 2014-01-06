@@ -3,8 +3,23 @@
 {% block categoryContentTitle %}
 {% endblock %}
 
-{% block menuContent %}
+{% block categoryContent %}
     <nav class="text-right">
         <a class="btn btn-primary" href="{{ path('rj_admin_settings_category_add') }}">{{ 'general.add' | trans }}</a>
     </nav>
+    <section id="categoryTree">
+        {% for category in categoryTree %}
+            <div class="">
+                {{ category.id }}
+                {% if category.name is not empty %}
+                    {{ category.name }}
+                {% else %}
+                    {{ 'adminBundle.manageCategory.form.emptyTranslation' | trans }}
+                {% endif %}
+                {% if category.children | length > 0 %}
+                    {% include 'RJAdminBundle:Category:includes/category_nested_level.html.twig' with {'categoryTree': category.children} %}
+                {% endif %}
+            </div>
+        {% endfor %}
+    </section>
 {% endblock %}

@@ -92,6 +92,7 @@ stof_doctrine_extensions:
             timestampable: false
             tree: false
             translatable: false
+            sortable: true
 
 a2lix_translation_form:
     locales: [pl, en]       # [optional] Array of the translation locales (The default locale have to be excluded). Can also be specified in the form builder.

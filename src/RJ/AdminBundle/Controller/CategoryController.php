@@ -26,7 +26,12 @@ class CategoryController extends BaseController {
                 }
             }
         }*/
-        return $this->render('RJAdminBundle:Category:contents/index.html.twig');
+        return $this->render(
+            'RJAdminBundle:Category:contents/index.html.twig',
+            array(
+                'categoryTree' => $categories
+            )
+        );
     }
 
     /**

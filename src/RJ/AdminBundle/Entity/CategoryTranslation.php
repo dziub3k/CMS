@@ -37,7 +37,7 @@ class CategoryTranslation implements OneLocaleInterface
      * @var string
      *
      * @Gedmo\Slug(fields={"name"}, unique=true, unique_base="locale")
-     * @ORM\Column(length=24, unique=true)
+     * @ORM\Column(length=24)
      */
     protected $slug;
 
