@@ -1,0 +1,38 @@
+{% extends 'RJAdminBundle:Category:categoryContent.html.twig' %}
+
+{% block categoryContentTitle %}
+    - {{ 'adminBundle.manageCategory.add' | trans }}
+{% endblock %}
+
+{% block menuContent %}
+    {{ form_start(form, {'attr': {'class': 'form-horizontal category-form' }} ) }}
+    {{ form_errors(form) }}
+    <div class="col-md-8">
+        <div class="form-group col-sm-10">
+            {{ form_label(form.parent) }}
+            <div>
+                {{ form_widget(form.parent) }}
+            </div>
+        </div>
+        {{ form_widget(form.translations) }}
+    </div>
+    <div class="col-md-4">
+    <div class="form-group">
+        {{ form_label(form.flShow) }}
+        <div>
+            {{ form_widget(form.flShow) }}
+        </div>
+    </div>
+    <div class="form-group">
+        {{ form_label(form.flClickable) }}
+        <div>
+            {{ form_widget(form.flClickable) }}
+        </div>
+    </div>
+    </div>
+
+    <nav class="text-right">
+        {{ form_widget(form.save) }}
+    </nav>
+    {{ form_end(form) }}
+{% endblock %}

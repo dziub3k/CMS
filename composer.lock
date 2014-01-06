@@ -3,8 +3,63 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "f1442ff887a5411fe736f9d2f73d5f65",
+    "hash": "cab731ab4c8febf6611140c43b732521",
     "packages": [
+        {
+            "name": "a2lix/i18n-doctrine-bundle",
+            "version": "dev-master",
+            "target-dir": "A2lix/I18nDoctrineBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/a2lix/I18nDoctrineBundle.git",
+                "reference": "3cbf598c691bf5b875b3d3a45797c87f3b674e64"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/a2lix/I18nDoctrineBundle/zipball/3cbf598c691bf5b875b3d3a45797c87f3b674e64",
+                "reference": "3cbf598c691bf5b875b3d3a45797c87f3b674e64",
+                "shasum": ""
+            },
+            "require": {
+                "a2lix/translation-form-bundle": "*",
+                "symfony/symfony": ">=2.3"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "A2lix\\I18nDoctrineBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "A2lix",
+                    "homepage": "http://a2lix.fr"
+                },
+                {
+                    "name": "David ALLIX"
+                }
+            ],
+            "description": "Manage i18n for your doctrine objects",
+            "homepage": "https://github.com/a2lix/I18nDoctrineBundle",
+            "keywords": [
+                "Symfony2",
+                "doctrine2",
+                "i18n",
+                "internationalization",
+                "translatable",
+                "translation"
+            ],
+            "time": "2013-11-07 18:47:39"
+        },
         {
             "name": "a2lix/translation-form-bundle",
             "version": "dev-master",
@@ -877,12 +932,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/l3pp4rd/DoctrineExtensions.git",
-                "reference": "97386dda06ce50f3c20e2b6658e668679d637f41"
+                "reference": "20d0d03e79dc5e527c97ae5de35e03bde1984bc7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/l3pp4rd/DoctrineExtensions/zipball/97386dda06ce50f3c20e2b6658e668679d637f41",
-                "reference": "97386dda06ce50f3c20e2b6658e668679d637f41",
+                "url": "https://api.github.com/repos/l3pp4rd/DoctrineExtensions/zipball/20d0d03e79dc5e527c97ae5de35e03bde1984bc7",
+                "reference": "20d0d03e79dc5e527c97ae5de35e03bde1984bc7",
                 "shasum": ""
             },
             "require": {
@@ -949,7 +1004,7 @@
                 "tree",
                 "uploadable"
             ],
-            "time": "2013-12-26 15:40:18"
+            "time": "2014-01-04 15:29:49"
         },
         {
             "name": "incenteev/composer-parameter-handler",
@@ -1808,16 +1863,16 @@
         },
         {
             "name": "symfony/symfony",
-            "version": "v2.4.0",
+            "version": "v2.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "2e47d2edd45080c046bc32dd2ca5c64f31086366"
+                "reference": "377a5fb23bfdc2fb616610b7b7ab7cc9a50e614d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/2e47d2edd45080c046bc32dd2ca5c64f31086366",
-                "reference": "2e47d2edd45080c046bc32dd2ca5c64f31086366",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/377a5fb23bfdc2fb616610b7b7ab7cc9a50e614d",
+                "reference": "377a5fb23bfdc2fb616610b7b7ab7cc9a50e614d",
                 "shasum": ""
             },
             "require": {
@@ -1877,7 +1932,7 @@
                 "doctrine/orm": "~2.2,>=2.2.3",
                 "ircmaxell/password-compat": "1.0.*",
                 "monolog/monolog": "~1.3",
-                "ocramius/proxy-manager": ">=0.3.1,<0.5-dev",
+                "ocramius/proxy-manager": ">=0.3.1,<0.6-dev",
                 "propel/propel1": "1.6.*"
             },
             "type": "library",
@@ -1917,7 +1972,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2013-12-03 15:23:03"
+            "time": "2014-01-05 02:12:11"
         },
         {
             "name": "twig/extensions",
@@ -2119,7 +2174,8 @@
         "ob/highcharts-bundle": 20,
         "stof/doctrine-extensions-bundle": 20,
         "gedmo/doctrine-extensions": 20,
-        "a2lix/translation-form-bundle": 20
+        "a2lix/translation-form-bundle": 20,
+        "a2lix/i18n-doctrine-bundle": 20
     },
     "platform": {
         "php": ">=5.3.3"

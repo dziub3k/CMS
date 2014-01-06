@@ -3,23 +3,14 @@
 namespace RJ\AdminBundle\Controller;
 
 use RJ\AdminBundle\Entity\Category;
-use RJ\AdminBundle\Entity\CategoryTranslation;
 use RJ\AdminBundle\Forms\CategoryType;
 use RJ\UtilitiesBundle\Controller\BaseController;
+use A2lix\I18nDoctrineBundle\Annotation\I18nDoctrine;
 
-class MenuController extends BaseController {
+class CategoryController extends BaseController {
 
     public function indexAction()
     {
-        /*em = $this->getDoctrine()->getManager();
-        $fruits = new Category;
-        $fruits->setParent(null);
-        $fruits->setName('Fruits');
-        $fruits->addTranslation(new CategoryTranslation('lt', 'name', 'Vaisiai'));
-        $fruits->addTranslation(new CategoryTranslation('ru', 'name', 'rus trans'));
-        $em->persist($fruits);
-        $em->flush();*/
-
         $categoryRepository = $this->getRepository('RJAdminBundle:Category');
         $categories = $categoryRepository->findBy(
             array(
@@ -27,22 +18,28 @@ class MenuController extends BaseController {
             )
         );
         /*foreach ($categories as $category) {
-            echo $category->getName() . '<br>';
+            echo $category->getCurrentTranslation() . '<br>';
             if(count($children = $category->getChildren()) > 0)
             {
                 foreach ($children as $child) {
-                    echo $child->getName();
+                    echo $child->getCurrentTranslation();
                 }
             }
         }*/
-        return $this->render('RJAdminBundle:Menu:contents/index.html.twig');
+        return $this->render('RJAdminBundle:Category:contents/index.html.twig');
     }
 
+    /**
+     * @I18nDoctrine
+     */
     public function addAction()
     {
         $request = $this->container->get('request');
         $category = new Category();
-        $categoryForm = $this->createForm(new CategoryType(), $category);
+        $categoryParameters = array(
+            'default_locale' => $this->container->getParameter('language')
+        );
+        $categoryForm = $this->createForm(new CategoryType($categoryParameters), $category);
         $categoryForm->handleRequest($request);
         if ($categoryForm->isValid()) {
             $this->setFlashMessage('success', 'test');
@@ -51,10 +48,10 @@ class MenuController extends BaseController {
                 $em->persist($category);
                 $em->flush();
             }
-            return $this->redirect($this->generateUrl('rj_admin_settings_menu'));
+            return $this->redirect($this->generateUrl('rj_admin_settings_category'));
         }
         return $this->render(
-            'RJAdminBundle:Menu:contents/add.html.twig',
+            'RJAdminBundle:Category:contents/add.html.twig',
             array(
                 'form' => $categoryForm->createView()
             )

@@ -21,6 +21,7 @@ class AppKernel extends Kernel
             new Ob\HighchartsBundle\ObHighchartsBundle(),
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             new A2lix\TranslationFormBundle\A2lixTranslationFormBundle(),
+            new A2lix\I18nDoctrineBundle\A2lixI18nDoctrineBundle(),
 
             new RJ\PublicBundle\RJPublicBundle(),
             new RJ\UserBundle\RJUserBundle(),

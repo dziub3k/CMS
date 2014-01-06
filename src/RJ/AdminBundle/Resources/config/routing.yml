@@ -6,18 +6,18 @@ rj_admin_settings_general:
     pattern: /settings/general
     defaults: { _controller: RJAdminBundle:Settings:index }
 
-rj_admin_settings_menu:
-    pattern: /settings/menu
-    defaults: { _controller: RJAdminBundle:Menu:index }
+rj_admin_settings_category:
+    pattern: /settings/category
+    defaults: { _controller: RJAdminBundle:Category:index }
 
-rj_admin_settings_menu_add:
-    pattern: /settings/menu/add
-    defaults: { _controller: RJAdminBundle:Menu:add }
+rj_admin_settings_category_add:
+    pattern: /settings/category/add
+    defaults: { _controller: RJAdminBundle:Category:add }
 
-rj_admin_settings_menu_edit:
-    pattern: /settings/menu/edit/{id}
-    defaults: { _controller: RJAdminBundle:Menu:edit }
+rj_admin_settings_category_edit:
+    pattern: /settings/category/edit/{id}
+    defaults: { _controller: RJAdminBundle:Category:edit }
 
-rj_admin_settings_menu_remove:
-    pattern: /settings/menu/remove/{id}
-    defaults: { _controller: RJAdminBundle:Menu:remove }
+rj_admin_settings_category_remove:
+    pattern: /settings/category/remove/{id}
+    defaults: { _controller: RJAdminBundle:Category:remove }

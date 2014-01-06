@@ -1,6 +1,6 @@
 {% extends 'RJAdminBundle::layout.html.twig' %}
 
-{% block title %}- {{ 'adminBundle.menu.settings.menu' | trans }}{% endblock %}
+{% block title %}- {{ 'adminBundle.menu.settings.category' | trans }}{% endblock %}
 
 {% block menuSettings %}active{% endblock %}
 {% block submenuCategory %}active{% endblock %}
@@ -18,7 +18,7 @@
     <section class="box">
         <h2>
             <i class="fa fa-list-ol"></i>
-            {{ 'adminBundle.menu.settings.menu' | trans }} {% block menuContentTitle %}{% endblock %}
+            {{ 'adminBundle.menu.settings.category' | trans }} {% block categoryContentTitle %}{% endblock %}
             <i class="fa fa-caret-down"></i>
         </h2>
         <hr>

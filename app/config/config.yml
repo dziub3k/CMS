@@ -73,14 +73,15 @@ doctrine:
 
     orm:
         auto_generate_proxy_classes: %kernel.debug%
-        auto_mapping: true
-        mappings:
-          translatable:
-              type: annotation
-              alias: Gedmo
-              prefix: Gedmo\Translatable\Entity
-              # make sure vendor library location is correct
-              dir: "%kernel.root_dir%/../vendor/gedmo/doctrine-extensions/lib/Gedmo/Translatable/Entity/MappedSuperclass"
+        #auto_mapping: true
+        entity_managers:
+            default:
+                auto_mapping: true
+                # New custom filter
+                filters:
+                    oneLocale:
+                        class: A2lix\I18nDoctrineBundle\Doctrine\ORM\Filter\OneLocaleFilter
+                        enabled: true
 
 stof_doctrine_extensions:
     default_locale: %language%
@@ -90,13 +91,13 @@ stof_doctrine_extensions:
             loggable: false
             timestampable: false
             tree: false
-            translatable: true
+            translatable: false
 
 a2lix_translation_form:
     locales: [pl, en]       # [optional] Array of the translation locales (The default locale have to be excluded). Can also be specified in the form builder.
     default_required: true     # [optional] Defaults to false. In this case, translation fields are not mark as required with HTML5.
     manager_registry: doctrine
-    templating: "A2lixTranslationFormBundle::default.html.twig" # The default template is Twitter Bootstrap compatible. You can redefine your own template
+    templating: "RJAdminBundle:Category:translations/form.html.twig" # The default template is Twitter Bootstrap compatible. You can redefine your own template
 
 fos_user:
     db_driver: orm

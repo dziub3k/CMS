@@ -30,7 +30,7 @@ adminBundle:
         manageUsers: Użytkownicy
         settings:
             settings: Ustawienia
-            menu: Zarządzanie menu
+            category: Zarządzanie menu
             general: Ogólne
             site: strony
             modules: Zarządzanie modułami
@@ -57,12 +57,13 @@ adminBundle:
             pub: Klucz Publiczny
             priv: Klucz prywatny
         flEnable: Strona włączona
-    manageMenu:
+    manageCategory:
         add: dodawanie nowej pozycji
         form:
             name: Nazwa kategorii
             parent: Kategoria nadrzędna
             empty: Brak
+            emptyTranslation: (Brak tłumaczenia)
             tags: Słowa kluczowe
             description: Opis
             flShow: Pokazuj

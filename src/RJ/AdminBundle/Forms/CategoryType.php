@@ -9,56 +9,70 @@ use Doctrine\ORM\EntityRepository;
 
 class CategoryType extends AbstractType
 {
+    private $parameters;
 
+    public function __construct(array $parameters)
+    {
+        $this->parameters = $parameters;
+    }
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        $parameters = $this->parameters;
+
         $builder
             ->add(
-                'name',
-                'a2lix_translations'
+                'translations',
+                'a2lix_translations',
+                array(
+                    'required' => false,
+                    'fields' => array(
+                        'name' => array(
+                            'required' => true,
+                            'field_type' => 'text',
+                            'label' => 'adminBundle.manageCategory.form.name',
+                            'attr' => array(
+                                'class' => 'form-control'
+                            )
+                        ),
+                        'tags' => array(
+                            'field_type' => 'text',
+                            'label' => 'adminBundle.manageCategory.form.tags',
+                            'attr' => array(
+                                'class' => 'form-control'
+                            )
+                        ),
+                        'description' => array(
+                            'field_type' => 'textarea',
+                            'label' => 'adminBundle.manageCategory.form.description',
+                            'attr' => array(
+                                'class' => 'form-control'
+                            )
+                        ),
+                        'slug' => array(
+                            'display' => false
+                        )
+                    )
+                )
             )
             ->add(
                 'parent',
                 'entity',
                 array(
                     'class' => 'RJAdminBundle:Category',
-                    'query_builder' => function (EntityRepository $er) use ($options) {
+                    'query_builder' => function (EntityRepository $er) use ($parameters) {
                             $qb = $er->createQueryBuilder('c')
-                                ->where('c.parent is null')
-                                ->orderBy('c.name', 'ASC');
-                            if (isset($options['id']) && is_int($options['id'])) {
+                                ->where('c.parent is null');
+                            if (isset($parameters['id']) && is_int($parameters['id'])) {
                                 $qb->andWhere('c.id != :id')
-                                ->setParameter('id', $options['id']);
+                                ->setParameter('id', $parameters['id']);
                             }
                             return $qb;
                         },
-                    'label' => 'adminBundle.manageMenu.form.parent',
-                    'empty_value' => 'adminBundle.manageMenu.form.empty',
+                    'label' => 'adminBundle.manageCategory.form.parent',
+                    'empty_value' => 'adminBundle.manageCategory.form.empty',
                     'required' => false,
                     'attr' => array(
                         'class' => 'selectpicker form-control'
-                    )
-                )
-            )
-            ->add(
-                'tags',
-                'text',
-                array(
-                    'required' => false,
-                    'label' => 'adminBundle.manageMenu.form.tags',
-                    'attr' => array(
-                        'class' => 'form-control'
-                    )
-                )
-            )
-            ->add(
-                'description',
-                'textarea',
-                array(
-                    'required' => false,
-                    'label' => 'adminBundle.manageMenu.form.description',
-                    'attr' => array(
-                        'class' => 'form-control'
                     )
                 )
             )
@@ -67,7 +81,7 @@ class CategoryType extends AbstractType
                 'checkbox',
                 array(
                     'required' => false,
-                    'label' => 'adminBundle.manageMenu.form.flShow',
+                    'label' => 'adminBundle.manageCategory.form.flShow',
                     'attr' => array(
                         'class' => 'checkbox'
                     )
@@ -78,7 +92,7 @@ class CategoryType extends AbstractType
                 'checkbox',
                 array(
                     'required' => false,
-                    'label' => 'adminBundle.manageMenu.form.flClickable',
+                    'label' => 'adminBundle.manageCategory.form.flClickable',
                     'attr' => array(
                         'class' => 'checkbox'
                     )
@@ -109,7 +123,7 @@ class CategoryType extends AbstractType
 
     public function getName()
     {
-        // TODO: Implement getName() method.
+        return 'form';
     }
 
 }

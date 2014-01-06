@@ -26,7 +26,8 @@
         "ob/highcharts-bundle": "dev-master",
         "stof/doctrine-extensions-bundle": "1.1.*@dev",
         "gedmo/doctrine-extensions": "2.3.*@dev",
-        "a2lix/translation-form-bundle": "2.*@dev"
+        "a2lix/translation-form-bundle": "2.*@dev",
+        "a2lix/i18n-doctrine-bundle": "0.*@dev"
     },
     "scripts": {
         "post-install-cmd": [

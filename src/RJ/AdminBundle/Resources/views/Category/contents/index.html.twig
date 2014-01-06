@@ -1,0 +1,10 @@
+{% extends 'RJAdminBundle:Category:categoryContent.html.twig' %}
+
+{% block categoryContentTitle %}
+{% endblock %}
+
+{% block menuContent %}
+    <nav class="text-right">
+        <a class="btn btn-primary" href="{{ path('rj_admin_settings_category_add') }}">{{ 'general.add' | trans }}</a>
+    </nav>
+{% endblock %}
