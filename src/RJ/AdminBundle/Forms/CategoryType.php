@@ -2,23 +2,17 @@
 
 namespace RJ\AdminBundle\Forms;
 
+use RJ\AdminBundle\Forms\EventListener\AddParentFieldSubscriber;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
-use Doctrine\ORM\EntityRepository;
+
 
 class CategoryType extends AbstractType
 {
-    private $parameters;
-
-    public function __construct(array $parameters)
-    {
-        $this->parameters = $parameters;
-    }
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $parameters = $this->parameters;
-
+        $builder->addEventSubscriber(new AddParentFieldSubscriber());
         $builder
             ->add(
                 'translations',
@@ -51,28 +45,6 @@ class CategoryType extends AbstractType
                         'slug' => array(
                             'display' => false
                         )
-                    )
-                )
-            )
-            ->add(
-                'parent',
-                'entity',
-                array(
-                    'class' => 'RJAdminBundle:Category',
-                    'query_builder' => function (EntityRepository $er) use ($parameters) {
-                            $qb = $er->createQueryBuilder('c')
-                                ->where('c.parent is null');
-                            if (isset($parameters['id']) && is_int($parameters['id'])) {
-                                $qb->andWhere('c.id != :id')
-                                ->setParameter('id', $parameters['id']);
-                            }
-                            return $qb;
-                        },
-                    'label' => 'adminBundle.manageCategory.form.parent',
-                    'empty_value' => 'adminBundle.manageCategory.form.empty',
-                    'required' => false,
-                    'attr' => array(
-                        'class' => 'selectpicker form-control'
                     )
                 )
             )

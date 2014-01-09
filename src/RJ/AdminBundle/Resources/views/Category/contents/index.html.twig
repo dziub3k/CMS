@@ -10,15 +10,18 @@
     <section id="categoryTree">
         {% for category in categoryTree %}
             <div class="">
-                {{ category.id }}
-                {% if category.name is not empty %}
-                    {{ category.name }}
-                {% else %}
-                    {{ 'adminBundle.manageCategory.form.emptyTranslation' | trans }}
-                {% endif %}
+                <a href="{{ path('rj_admin_settings_category_edit', { 'id': category.id }) }}">
+                    {% if category.name is not empty %}
+                        {{ category.name }}
+                    {% else %}
+                        {{ 'adminBundle.manageCategory.form.emptyTranslation' | trans }}
+                    {% endif %}
+                </a>
+                <a href="{{ path('rj_admin_settings_category_remove', { 'id': category.id }) }}"><i class="fa fa-trash-o"></i></a>
                 {% if category.children | length > 0 %}
                     {% include 'RJAdminBundle:Category:includes/category_nested_level.html.twig' with {'categoryTree': category.children} %}
                 {% endif %}
+
             </div>
         {% endfor %}
     </section>

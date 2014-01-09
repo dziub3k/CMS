@@ -1,7 +1,9 @@
 {% for category in categoryTree %}
     {% if category.name is not empty %}
         <div class="">
-            {{ category.name }}
+            <a href="{{ path('rj_admin_settings_category_edit', { 'id': category.id }) }}">
+                {{ category.name }}
+            </a>
         </div>
     {% endif %}
 {% endfor %}

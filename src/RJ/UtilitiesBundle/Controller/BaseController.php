@@ -24,4 +24,14 @@ class BaseController extends Controller
     {
         return $this->getDoctrine()->getRepository($persistentObjectName, $persistentManagerName);
     }
+
+    /**
+     * Funkcja tłumacząca wiadomość
+     * @param string $message wiadomość
+     * @return string wiadomość przetłumaczona
+     */
+    protected function translateMessage($message)
+    {
+        return $this->container->get('translator')->trans($message);
+    }
 }

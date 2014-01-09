@@ -68,3 +68,6 @@ adminBundle:
             description: Opis
             flShow: Pokazuj
             flClickable: Pozycja klikalna
+        operation:
+            add: Dodano nową kategorię
+            edit: Uaktualniono kategorię
