@@ -21,3 +21,11 @@ rj_admin_settings_category_edit:
 rj_admin_settings_category_remove:
     pattern: /settings/category/remove/{id}
     defaults: { _controller: RJAdminBundle:Category:remove }
+    options:
+        expose: true
+
+rj_admin_settings_category_update:
+    pattern: /settings/category/update/{id}/{type}
+    defaults: { _controller: RJAdminBundle:Category:update }
+    options:
+        expose: true

@@ -1,9 +1,35 @@
 {% for category in categoryTree %}
     {% if category.name is not empty %}
-        <div class="">
-            <a href="{{ path('rj_admin_settings_category_edit', { 'id': category.id }) }}">
+        <ul class="">
+            <li>
                 {{ category.name }}
-            </a>
-        </div>
+                <div class="btn-group">
+                    <a class="btn btn-primary"
+                       href="{{ path('rj_admin_settings_category_edit', { 'id': category.id }) }}"><i
+                                class="fa fa-pencil fa-fw"></i> {{ 'general.edit' | trans }}
+                    </a>
+                    <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">
+                        <span class="fa fa-caret-down"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a class="remove" data-id="{{ category.id }}" href="javascript:void(0);"><i
+                                        class="fa fa-trash-o fa-fw"></i> {{ 'general.remove' | trans }}</a></li>
+                        {% if category.flClickable %}
+                            <li><a class="clickable" data-id="{{ category.id }}" href="javascript:void(0);"><i
+                                            class="fa fa-unlink fa-fw"></i> {{ 'adminBundle.manageCategory.form.notFlClickable' | trans }}
+                                </a></li>
+                        {% else %}
+                            <li><a class="clickable" data-id="{{ category.id }}" href="javascript:void(0);"><i
+                                            class="fa fa-link fa-fw"></i> {{ 'adminBundle.manageCategory.form.flClickable' | trans }}
+                                </a></li>
+                        {% endif %}
+                        {% if category.flShow %}
+                            <li><a class="show" data-id="{{ category.id }}" href="javascript:void(0);"><i class="fa fa-eye-slash"></i> {{ 'general.dontShow' | trans }}</a></li>
+                        {% else %}
+                            <li><a class="show" data-id="{{ category.id }}" href="javascript:void(0);"><i class="fa fa-eye"></i> {{ 'general.show' | trans }}</a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </li>
+        </ul>
     {% endif %}
 {% endfor %}

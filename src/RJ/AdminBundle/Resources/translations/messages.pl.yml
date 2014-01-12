@@ -6,6 +6,8 @@ general:
     add: Dodaj
     remove: Usuń
     edit: Edytuj
+    show: Pokazuj
+    dontShow: Nie pokazuj
 dialog:
     hello: Witaj
     youHave: Masz
@@ -14,6 +16,8 @@ dialog:
     visits: wizyt
     uniqueVisits: unikalnych wizyt
     bounceRate: odrzuconych
+exceptions:
+    uncatchableException: Wystąpił nieoczekiwany błąd, spróbuj poźniej.
 publicBundle:
     fos:
         username: Użytkownik
@@ -68,6 +72,7 @@ adminBundle:
             description: Opis
             flShow: Pokazuj
             flClickable: Pozycja klikalna
+            notFlClickable: Pozycja nie klikalna
         operation:
             add: Dodano nową kategorię
             edit: Uaktualniono kategorię
